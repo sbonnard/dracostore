@@ -21,6 +21,9 @@ generateToken();
 <body>
     <main>
         <h1>Hello</h1>
+        <ul>
+            <?= getAllProducts ($dbCo) ?>
+        </ul>
     </main>
 </body>
 

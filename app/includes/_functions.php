@@ -21,3 +21,21 @@ function redirectTo(?string $url = null): void
     exit;
 }
 
+function getAllProducts (PDO $dbCo) {
+
+    $query = $dbCo->query("SELECT id_product, stock, product_name, price, id_tax, id_category, image_url
+    FROM product");
+
+    $query->execute();
+
+    while ($product = $query->fetch()) {
+
+        echo '<li>
+                <img src="img/'.$product["image_url"].'" alt="">
+                <h3>'.$product["product_name"].'</h3>
+                <p>'.$product["price"].'</p>
+
+            </li>';
+    }
+}
+
