@@ -20,7 +20,12 @@ generateToken();
 
 <body>
     <main>
-        <h1 class="test">Hello</h1>
+
+        <h1>Hello</h1>
+        <ul>
+            <?= getAllProducts ($dbCo) ?>
+        </ul>
+
     </main>
 </body>
 
