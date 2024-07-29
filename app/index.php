@@ -19,6 +19,8 @@ generateToken();
     <link rel="stylesheet" href="scss/style.scss">
 </head>
 <body>
-    
+    <main>
+        <h1>Hello</h1>
+    </main>
 </body>
 </html>
