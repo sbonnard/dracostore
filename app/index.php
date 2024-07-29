@@ -6,19 +6,20 @@ require_once 'includes/_config.php';
 require_once 'includes/_functions.php';
 require_once 'includes/_message.php';
 require_once 'includes/_security.php';
+require_once 'includes/components/_htmlTemplates.php';
 
 generateToken();
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dracostore</title>
-    <link rel="stylesheet" href="scss/style.scss">
+    <?= fetchHTMLHead('Dracostore') ?>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
