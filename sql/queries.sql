@@ -104,3 +104,12 @@ VALUES
 (78, 'Parchemin de Boule de Feu', 2.3, 1),
 (1, 'Amulette de résurrection', 122, 9),
 (51, 'Photo dédicacée de Sieur David le Hardi', 81.3, 9);
+
+SELECT SUM(price*quantity) as total_price, id_ticket
+FROM product
+   JOIN sales USING (id_product)
+   JOIN ticket USING (id_ticket)
+WHERE id_ticket = 238
+GROUP by id_ticket;
+
+INSERT INTO `sales`(`id_product`, `id_ticket`, `quantity`) VALUES ('14','238','3');
