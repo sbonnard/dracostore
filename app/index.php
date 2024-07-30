@@ -23,10 +23,12 @@ generateToken();
     <main>
 
         <h1>Hello</h1>
-
-        <ul>
+<section>
+        <ul class="product__container">
             <?= getAllProducts($dbCo) ?>
         </ul>
+</section>
+
 
         <form action="" method="post">
             <ul id="cart">
