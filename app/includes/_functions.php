@@ -163,3 +163,13 @@ function checkSaleErrors()
     }
 }
 
+function fetchProducts(PDO $dbCo) {
+    $query = $dbCo->query("SELECT *
+    FROM product;");
+
+    $products = $query->execute();
+
+    $datas = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $datas;
+}

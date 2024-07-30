@@ -39,7 +39,7 @@ generateToken();
     <main>
 
         <h1>Hello</h1>
-        
+
         <ul>
             <?= getAllProducts($dbCo) ?>
         </ul>
@@ -58,8 +58,8 @@ generateToken();
             <h2 data-product-name="">Produit</h2>
             <p data-product-price="">1.1</p>
             <button>X</button>
-            <input type="number" name="quantity" id="quantity" value="1">
-            <input type="hidden" name="" value="id_product">
+            <input type="number" name="quantity" class="quantity" value="1">
+            <input type="hidden" name="" data-product-ref="" value="id_product">
         </li>
     </template>
 
