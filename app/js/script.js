@@ -19,6 +19,26 @@ const cart = document.getElementById('cart');
 
 console.log(productCard, cart);
 
-addEventListener.productCard('click', function(){
-    const clone = document.importNode(template.content, true)
-})
+// addEventListener.productCard('click', function(){
+//     const clone = document.importNode(template.content, true)
+// })
+
+// sale //
+
+const btnDelete = document.querySelectorAll('[data-product-delete]');
+const itemLst = document.querySelectorAll('[data-item]');
+// const btn = btnDelete.closest('[data-item]');
+
+
+
+btnDelete.forEach(btn => {
+    
+    console.log(btn);
+ 
+    btn.addEventListener('click', function(e) {
+        console.log("hello");
+        btn.closest('[data-item]').remove();
+    })
+});
+
+
