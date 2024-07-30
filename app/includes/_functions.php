@@ -21,6 +21,13 @@ function redirectTo(?string $url = null): void
     exit;
 }
 
+
+/**
+ * Get the list of all products
+ *
+ * @param PDO $dbCo data base
+ * @return void
+ */
 function getAllProducts (PDO $dbCo) {
 
     $query = $dbCo->query("SELECT id_product, stock, product_name, price, id_tax, id_category, image_url
@@ -33,10 +40,34 @@ function getAllProducts (PDO $dbCo) {
         echo '<li>
                 <img src="img/'.$product["image_url"].'" alt="">
                 <h3>'.$product["product_name"].'</h3>
-                <p>'.$product["price"].'</p>
-                <p>'.$product["stock"].'</p>
+                <p>prix : '.$product["price"].'</p>
+                <p>en stock : '.$product["stock"].'</p>
 
             </li>';
     }
+}
+
+
+/**
+ * Calculed sum of products of sale
+ *
+ * @param PDO $dbCo
+ * @return void
+ */
+function sumSale (PDO $dbCo, $idTicket) {
+
+    $query = $dbCo->query("SELECT SUM(price*quantity) as total_price, id_ticket
+FROM product
+   JOIN sales USING (id_product)
+   JOIN ticket USING (id_ticket)
+WHERE id_ticket = $idTicket
+GROUP by id_ticket;");
+
+$infoTotal =  $query->fetch();
+
+return 
+    '<p>' .$infoTotal["id_ticket"]. '</p>
+    <p>' .$infoTotal["total_price"]. '</p>';
+
 }
 
