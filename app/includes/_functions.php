@@ -160,3 +160,4 @@ function checkSaleErrors()
         addError('id_ticket_ko');
     }
 }
+
