@@ -40,13 +40,31 @@ generateToken();
 
         <h1>Hello</h1>
 
+        
+
+        <select name="pets" id="pet-select">
+            <option value="">Filtres</option>
+            <option value="magique">Magique</option>
+            <option value="potion">Potion</option>
+            <option value="arme">Arme</option>
+            <option value="armure">Armure</option>
+            <option value="bouclier">Bouclier</option>
+            <option value="ingrédient">Ingrédient</option>
+            <option value="déco">Déco</option>
+            <option value="services">Services</option>
+            <option value="artefact">Artefact</option>
+            <option value="familier">Familier</option>
+            <option value="vêtement">Vêtement</option>
+            <option value="nourriture">Nourriture</option>
+        </select>
+
         <ul>
             <?= getAllProducts($dbCo) ?>
         </ul>
 
         <form action="" method="post">
             <ul id="cart">
-            <li data-item="">
+                <li data-item="">
                     <h2 data-product-name="">Produit</h2>
                     <p data-product-price="">1.1</p>
                     <button type="button" data-product-delete="">X</button>
@@ -59,7 +77,7 @@ generateToken();
                     <button type="button" data-product-delete="">X</button>
                     <input type="number" name="quantity" id="quantity" value="1">
                     <input type="hidden" name="" value="id_product">
-                </li>  
+                </li>
             </ul>
             <input type="submit" value="Valider encaissement">
             <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
