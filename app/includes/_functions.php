@@ -21,7 +21,8 @@ function redirectTo(?string $url = null): void
     exit;
 }
 
-function getAllProducts (PDO $dbCo) {
+function getAllProducts(PDO $dbCo)
+{
 
     $query = $dbCo->query("SELECT id_product, stock, product_name, price, id_tax, id_category, image_url
     FROM product");
@@ -31,12 +32,102 @@ function getAllProducts (PDO $dbCo) {
     while ($product = $query->fetch()) {
 
         echo '<li>
-                <img src="img/'.$product["image_url"].'" alt="">
-                <h3>'.$product["product_name"].'</h3>
-                <p>'.$product["price"].'</p>
-                <p>'.$product["stock"].'</p>
+                <img src="img/' . $product["image_url"] . '" alt="">
+                <h3>' . $product["product_name"] . '</h3>
+                <p>' . $product["price"] . '</p>
+                <p>' . $product["stock"] . '</p>
 
             </li>';
     }
 }
 
+
+// function addProduct(PDO $dbCo) {
+//     $query = $dbCo->prepare('
+//     UPDATE product
+//     SET product_name = :name, price = :price, image_url = :url;');
+
+//     $bindValues = [
+//         'name' => 
+//     ]
+// }
+
+
+//////////////////////////////// TICKETS CREATION /////////////////////////////////////
+
+
+/**
+ * Adds a new ticket to database with products infos and quantity.
+ *
+ * @param PDO $dbCo - Connection to database.
+ * @return bool - isInsertOk true or false.
+ */
+function addNewTicket(PDO $dbCo): bool
+{
+    $errorsList = [];
+
+    checkSaleErrors();
+
+    if (empty($errorsList)) {
+        try {
+            $dbCo->beginTransaction();
+
+            $queryTicket = $dbCo->prepare(
+                'INSERT INTO ticket (ticket_date) VALUES (CURDATE())'
+            );
+            $queryTicket->execute();
+            $ticketId = $dbCo->lastInsertId();
+
+            $querySale = $dbCo->prepare(
+                'INSERT INTO sale (id_product, id_ticket, quantity)
+                VALUES (:idProduct, :idTicket, :quantity)'
+            );
+
+            $bindValues = [
+                'idProduct' => intval($_REQUEST['id_product']),
+                'idTicket' => intval($ticketId),
+                'quantity' => intval($_REQUEST['quantity'])
+            ];
+
+            $isInsertOk = $querySale->execute($bindValues);
+
+            if ($isInsertOk) {
+                addMessage('sale_ok');
+            } else {
+                addError('sale_ko');
+            }
+
+            $dbCo->commit();
+
+            return $isInsertOk;
+        } catch (Exception $error) {
+            $_SESSION['errors'] = "sale_fail: " . $error->getMessage();
+            $dbCo->rollBack();
+            return false;
+        }
+    }
+}
+
+
+/**
+ * Checks input errors fot a new ticket.
+ *
+ * @return void
+ */
+function checkSaleErrors()
+{
+    if (!isset($_POST['id_product']) || !intval($_POST['id_product'])) {
+        $errorsList[] = 'product ko';
+        addError('id_product_ko');
+    }
+
+    if (!isset($_POST['quantity']) || !intval($_POST['quantity']) || $_POST['quantity'] <= 0) {
+        $errorsList[] = 'quantity ko';
+        addError('quantity_ko');
+    }
+
+    if (!isset($_POST['id_ticket']) || !intval($_POST['id_ticket'])) {
+        $errorsList[] = 'ticket ko';
+        addError('id_ticket_ko');
+    }
+}

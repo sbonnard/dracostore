@@ -1,15 +1,4 @@
-insert into sales (id_product, id_ticket, quantity) values (1, 406, 8);
-insert into sales (id_product, id_ticket, quantity) values (2, 594, 5);
-insert into sales (id_product, id_ticket, quantity) values (3, 779, 7);
-insert into sales (id_product, id_ticket, quantity) values (4, 251, 2);
-insert into sales (id_product, id_ticket, quantity) values (5, 24, 1);
-insert into sales (id_product, id_ticket, quantity) values (6, 362, 5);
-insert into sales (id_product, id_ticket, quantity) values (7, 505, 10);
-insert into sales (id_product, id_ticket, quantity) values (8, 485, 9);
-insert into sales (id_product, id_ticket, quantity) values (9, 894, 10);
-insert into sales (id_product, id_ticket, quantity) values (10, 634, 7);
-insert into sales (id_product, id_ticket, quantity) values (11, 536, 5);
-insert into sales (id_product, id_ticket, quantity) values (12, 728, 4);
+
 insert into sales (id_product, id_ticket, quantity) values (13, 238, 5);
 insert into sales (id_product, id_ticket, quantity) values (14, 276, 5);
 insert into sales (id_product, id_ticket, quantity) values (15, 923, 10);
