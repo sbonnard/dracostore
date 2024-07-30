@@ -1,0 +1,37 @@
+/*FONT*/
+
+.search-title{
+    font-family:'lancelot';
+    font-size: 1.5rem;
+    color: #6F3713;
+    padding: 10px 150px 10px 20px;
+}
+
+
+/*ICON*/
+
+.wand-icon{
+    width: 2rem;
+}
+
+/*MAIN*/
+
+.searchbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 10px 17px ;
+
+}
+
+
+.border-searchbar{
+    border: 1px solid #6F3713;
+    border-radius:2px;
+    
+    background-image: url(../../img/magic-wand\ 1.svg);
+    background-repeat: no-repeat;
+    background-position:  right 10% bottom 45%;;
+}
+
