@@ -20,7 +20,39 @@ generateToken();
 
 <body>
 
-    <header>
+    <main>
+
+        <h1>Hello</h1>
+
+        <ul>
+            <?= getAllProducts($dbCo) ?>
+        </ul>
+
+        <form action="" method="post">
+            <ul id="cart">
+            <li data-item="">
+                    <h2 data-product-name="">Produit</h2>
+                    <p data-product-price="">1.1</p>
+                    <button type="button" data-product-delete="">X</button>
+                    <input type="number" name="quantity" id="quantity" value="1">
+                    <input type="hidden" name="" value="id_product">
+                </li>
+                <li data-item="">
+                    <h2 data-product-name="">Produit</h2>
+                    <p data-product-price="">1.1</p>
+                    <button type="button" data-product-delete="">X</button>
+                    <input type="number" name="quantity" id="quantity" value="1">
+                    <input type="hidden" name="" value="id_product">
+                </li>  
+            </ul>
+            <input type="submit" value="Valider encaissement">
+            <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+            <input type="hidden" name="action" value="new-ticket">
+        </form>
+
+    </main>
+
+    <header class="header">
         <div class="hamburger">
             <a href="#menu" id="hamburger-menu-icon">
                 <img src="img/hamburger.svg" alt="Menu Hamburger">
@@ -34,32 +66,17 @@ generateToken();
             </ul>
         </nav>
         </div>
+        <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
+        <button class="button--hood"></button>
     </header>
-
-    <main>
-
-        <h1>Hello</h1>
-        
-        <ul>
-            <?= getAllProducts($dbCo) ?>
-        </ul>
-
-        <form action="actions.php" method="post">
-            <ul id="cart"></ul>
-            <input type="submit" value="Valider encaissement">
-            <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-            <input type="hidden" name="action" value="new-ticket">
-        </form>
-
-    </main>
 
     <template id="cart-itm">
         <li>
             <h2 data-product-name="">Produit</h2>
             <p data-product-price="">1.1</p>
             <button>X</button>
-            <input type="number" name="quantity" id="quantity" value="1">
-            <input type="hidden" name="" value="id_product">
+            <input type="number" name="quantity" class="quantity" value="1">
+            <input type="hidden" name="" data-product-ref="" value="id_product">
         </li>
     </template>
 
