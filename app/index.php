@@ -20,22 +20,6 @@ generateToken();
 
 <body>
 
-    <header>
-        <div class="hamburger">
-            <a href="#menu" id="hamburger-menu-icon">
-                <img src="img/hamburger.svg" alt="Menu Hamburger">
-            </a>
-        </div>
-        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
-            <ul id="nav-list">
-                <li>
-                    <a href="index.php" aria-current="page">Accueil</a>
-                </li>
-            </ul>
-        </nav>
-        </div>
-    </header>
-
     <main>
 
         <h1>Hello</h1>
@@ -67,6 +51,24 @@ generateToken();
         </form>
 
     </main>
+
+    <header class="header">
+        <div class="hamburger">
+            <a href="#menu" id="hamburger-menu-icon">
+                <img src="img/hamburger.svg" alt="Menu Hamburger">
+            </a>
+        </div>
+        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
+            <ul id="nav-list">
+                <li>
+                    <a href="index.php" aria-current="page">Accueil</a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+        <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
+        <button class="button--hood"></button>
+    </header>
 
     <template id="cart-itm">
         <li>
