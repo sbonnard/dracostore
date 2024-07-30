@@ -23,16 +23,16 @@ generateToken();
     <main>
 
         <h1>Hello</h1>
-<section>
-        <ul class="product__container">
-            <?= getAllProducts($dbCo) ?>
-        </ul>
-</section>
+        <section>
+            <ul class="product__container">
+                <?= getAllProducts($dbCo) ?>
+            </ul>
+        </section>
 
 
         <form action="" method="post">
             <ul id="cart">
-            <li data-item="">
+                <li data-item="">
                     <h2 data-product-name="">Produit</h2>
                     <p data-product-price="">1.1</p>
                     <button type="button" data-product-delete="">X</button>
@@ -45,7 +45,7 @@ generateToken();
                     <button type="button" data-product-delete="">X</button>
                     <input type="number" name="quantity" id="quantity" value="1">
                     <input type="hidden" name="" value="id_product">
-                </li>  
+                </li>
             </ul>
             <input type="submit" value="Valider encaissement">
             <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
@@ -73,10 +73,10 @@ generateToken();
     </header>
 
     <template id="cart-itm">
-        <li>
+        <li data-item="">
             <h2 data-product-name="">Produit</h2>
             <p data-product-price="">1.1</p>
-            <button>X</button>
+            <button type="button" data-product-delete="">X</button>
             <input type="number" name="quantity" class="quantity" value="1">
             <input type="hidden" name="" data-product-ref="" value="id_product">
         </li>
