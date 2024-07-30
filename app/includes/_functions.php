@@ -40,7 +40,7 @@ function getAllProducts (PDO $dbCo) {
         echo '
         <li>
             <button data-product-card="">
-                <img src="img/' . $product["image_url"] . '" alt="">
+                <img class="product__img" src="img/' . $product["image_url"] . '" alt="">
                 <h3>' . $product["product_name"] . '</h3>
                 <p>' . $product["price"] . '</p>
                 <p>' . $product["stock"] . '</p>
