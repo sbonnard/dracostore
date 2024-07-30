@@ -20,22 +20,6 @@ generateToken();
 
 <body>
 
-    <header>
-        <div class="hamburger">
-            <a href="#menu" id="hamburger-menu-icon">
-                <img src="img/hamburger.svg" alt="Menu Hamburger">
-            </a>
-        </div>
-        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
-            <ul id="nav-list">
-                <li>
-                    <a href="index.php" aria-current="page">Accueil</a>
-                </li>
-            </ul>
-        </nav>
-        </div>
-    </header>
-
     <main>
 
         <h1>Hello</h1>
@@ -86,13 +70,31 @@ generateToken();
 
     </main>
 
+    <header class="header">
+        <div class="hamburger">
+            <a href="#menu" id="hamburger-menu-icon">
+                <img src="img/hamburger.svg" alt="Menu Hamburger">
+            </a>
+        </div>
+        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
+            <ul id="nav-list">
+                <li>
+                    <a href="index.php" aria-current="page">Accueil</a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+        <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
+        <button class="button--hood"></button>
+    </header>
+
     <template id="cart-itm">
         <li>
             <h2 data-product-name="">Produit</h2>
             <p data-product-price="">1.1</p>
-            <button data-product-delete="">X</button>
-            <input type="number" name="quantity" id="quantity" value="1">
-            <input type="hidden" name="" value="id_product">
+            <button>X</button>
+            <input type="number" name="quantity" class="quantity" value="1">
+            <input type="hidden" name="" data-product-ref="" value="id_product">
         </li>
     </template>
 
