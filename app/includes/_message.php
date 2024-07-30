@@ -1,12 +1,18 @@
 <?php
 
 $messages = [
-
+    'sale_ok' => 'Réussite critique lors de la vente.'
 ];
 
 $errors = [
     'csrf' => 'Votre session est invalide.',
     'referer' => 'D\'où venez vous ?',
+    'sale_ko' => 'Erreur dans la saisie du ticket.',
+    'sale_fail' => 'Échec critique lors de la vente.',
+    'id_product_ko' => 'Ce produit n\'existe pas.',
+    'quantity_ko' => 'Saisissez une quantité valide.',
+    'id_ticket_ko' => 'Le ticket n\'existe pas',
+    'datas_ko' => 'Les donées saisies ne sont pas valides.'
 ];
 
 
