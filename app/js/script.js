@@ -101,3 +101,18 @@ btnDelete.forEach(btn => {
         btn.closest('[data-item]').remove();
     })
 });
+
+
+cart.addEventListener('click', function (event) {
+    if (event.target.matches('[data-product-delete]')) {
+        const item = event.target.closest('[data-item]');
+        if (item) {
+            const productId = item.querySelector('[data-product-ref]').value;
+            const index = cartItems.findIndex(i => i.id === productId);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+            }
+            item.remove();
+        }
+    }
+});
