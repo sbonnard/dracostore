@@ -1,0 +1,20 @@
+.product {
+        max-width: 550px;
+        width:164px;
+        height: 141px;
+        position: relative;
+        font-family: 'Lancelot';
+        color: $jaune;
+        margin: 33px;
+        overflow: hidden;
+        border-radius: 3px;
+        border-width: 20px;
+        border-color: $marron;
+        text-align: center;
+        background: url(https://unsplash.it/600/800?image=1061) center no-repeat;
+        background-size: 100%;
+      }
+    
+      .display {
+      display: block;
+      }
