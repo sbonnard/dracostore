@@ -56,13 +56,14 @@ productCards.forEach(card => {
         const productId = card.dataset.productCard;
         const productName = card.dataset.productName;
         const productPrice = card.dataset.productPrice;
+        const productImage = card.dataset.productImage;
         
         if (cartItems.find(item => item.id === productId)) {
             console.log('Item is already in the cart');
             return;
         }
         
-        const item = { id: productId, name: productName, price: productPrice };
+        const item = { id: productId, name: productName, price: productPrice, image: productImage };
         cartItems.push(item);
         
         console.log(item.id, item.name, item.price);
@@ -75,8 +76,11 @@ productCards.forEach(card => {
         const nameProduct = clone.querySelector('[data-product-name]');
         nameProduct.innerText = item.name;
 
-        const priceProduct = clone.querySelector('[data-product-price]');
-        priceProduct.innerText = item.price;
+        // const priceProduct = clone.querySelector('[data-product-price]');
+        // priceProduct.innerText = item.price;
+
+        const imageProduct = clone.querySelector('[data-product-image]');
+        imageProduct.srcset = item.image;
 
         cart.appendChild(clone);
     });
