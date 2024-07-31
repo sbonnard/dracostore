@@ -1,0 +1,61 @@
+.receipt {
+    // opacity: 80%;
+    
+    &_content {
+        background-color: #a66c47;
+        color: $beige;
+        padding: 1rem;
+    
+    }
+
+    &_pseudo-element {
+        height: 2rem;
+    }
+    
+    &_separator {
+
+        &::before {
+            display: block;
+            content: "";
+            width:100%;
+            height: 1px;
+            background-color: $beige;
+            margin-bottom: 1rem;
+        }
+    }
+    
+    &_sum,
+    &_sum_tax
+    {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    
+    &_sum_tax {
+    
+    }
+}
+
+
+
+.validation-content {
+    display: flex;
+    justify-content: center;
+}
+
+.button--valid-sale {
+    color: $brown;
+    background: linear-gradient(90deg, rgba(166,108,71,1) 0%, rgba(254,250,212,1) 50%, rgba(166,108,71,1) 100%);
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    border: solid #6F3713 8px;
+    border-style: double;
+}
+
+.cart {
+    width: 100%;
+    height: 4rem;
+    background-image: url("../../img/panier.png");
+    background-size: contain;
+}
