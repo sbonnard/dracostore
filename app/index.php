@@ -48,14 +48,19 @@ generateToken();
                 <option value="nourriture">Nourriture</option>
             </select>
 
-            <form class="cart" action="" method="post">
-                <h3 class="title">Panier</h3>
-                <div class="separator"></div>
-                <ul class="cart" id="cart"></ul>
-                <input type="submit" value="Valider encaissement">
-                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <input type="hidden" name="action" value="new-ticket">
-            </form>
+            <div class="cart__background">
+                <section class="cart">
+                    <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
+                    <form action="" method="post">
+                        <h3 class="title">Panier</h3>
+                        <div class="separator"></div>
+                        <ul class="cart" id="cart"></ul>
+                        <input type="submit" value="Valider encaissement">
+                        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                        <input type="hidden" name="action" value="new-ticket">
+                    </form>
+                </section>
+            </div>
 
             <form action="" method="post">
                 <ul id="cart"></ul>
@@ -105,19 +110,22 @@ generateToken();
     </section
 
     <template id="cart-itm">
-        <li class="cart__itm" data-item="">
-            <img class="cart__image" data-product-image="" src="" alt="">
-            <div class="flex-column">
-                <h2 class="cart__product-name" data-product-name="">Produit</h2>
-                <div class="cart__small-container">
-                    <input class="input--number" type="number" name="quantity" class="quantity" value="1">
-                    <input type="hidden" name="" data-product-ref="" value="id_product">
-                    <button class="cart__delete-button" type="button" data-product-delete=""></button>
+        <div class="cart__item-container">
+            <li class="cart__itm" data-item="">
+                <img class="cart__image" data-product-image="" src="" alt="">
+                <div class="flex-column">
+                    <h2 class="cart__product-name" data-product-name="">Produit</h2>
+                    <div class="cart__small-container">
+                        <input class="input--number" type="number" name="quantity" class="quantity" value="1">
+                        <input type="hidden" name="" data-product-ref="" value="id_product">
+                        <button class="cart__delete-button" type="button" data-product-delete=""></button>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <div class="separator"></div>
+            </li>
+            <div class="separator"></div>
+        </div>
     </template>
+
 
     <script type="module" src="js/script.js"></script>
 </body>
