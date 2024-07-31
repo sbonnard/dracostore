@@ -2,3 +2,14 @@
     display: flex;
     flex-direction: column;
 }
+
+.separator {
+    &:after {
+        display: block;
+        content: '';
+        width: 19.875rem;
+        height: 1px;
+        background-color: $brown;
+        justify-content: center;
+    }
+}

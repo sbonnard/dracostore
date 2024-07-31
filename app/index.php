@@ -48,12 +48,14 @@ generateToken();
                 <option value="nourriture">Nourriture</option>
             </select>
 
-        <form action="" method="post">
-            <ul id="cart"></ul>
-            <input type="submit" value="Valider encaissement">
-            <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-            <input type="hidden" name="action" value="new-ticket">
-        </form>
+            <form class="cart" action="" method="post">
+                <h3 class="title">Panier</h3>
+                <div class="separator"></div>
+                <ul class="cart" id="cart"></ul>
+                <input type="submit" value="Valider encaissement">
+                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                <input type="hidden" name="action" value="new-ticket">
+            </form>
 
             <form action="" method="post">
                 <ul id="cart"></ul>
@@ -114,6 +116,7 @@ generateToken();
                 </div>
             </div>
         </li>
+        <div class="separator"></div>
     </template>
 
     <script type="module" src="js/script.js"></script>
