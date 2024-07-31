@@ -61,11 +61,13 @@ function sumSale(PDO $dbCo, $idTicket)
 {
 
     $query = $dbCo->query("SELECT SUM(price*quantity) as total_price, id_ticket
+
     FROM product
         JOIN sales USING (id_product)
         JOIN ticket USING (id_ticket)
     WHERE id_ticket = $idTicket
     GROUP by id_ticket;");
+
 
     $infoTotal =  $query->fetch();
 
