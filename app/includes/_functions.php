@@ -40,8 +40,8 @@ function getAllProducts(PDO $dbCo)
 
        echo '
         <li class="product__card">
-            <button data-product-card="' . $product["id_product"] . '" data-product-name="' . $product["product_name"] . '" data-product-price="' . $product["price"] . '">
-                <img class="product__img" src="img/' . $product["image_url"] . '" alt="">
+            <button data-product-card="' . $product["id_product"] . '" data-product-name="' . $product["product_name"] . '" data-product-price="' . $product["price"] . '" data-product-image="' . $product["image_url"] . '">
+                <img class="product__img" src="' . $product["image_url"] . '" alt="">
                 <h3>' . $product["product_name"] . '</h3>
                 <p class="product__price">' . $product["price"] . '<img src="./img/coin.svg" alt="pièce d\'or"></p>
                 <p>' . $product["stock"] . '</p>
@@ -166,6 +166,12 @@ function checkSaleErrors()
     }
 }
 
+/**
+ * Fetch all products datas from database
+ *
+ * @param PDO $dbCo - The connection to database.
+ * @return void
+ */
 function fetchProducts(PDO $dbCo)
 {
 
