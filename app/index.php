@@ -30,6 +30,29 @@ generateToken();
         </section>
 
 
+        
+
+        <select class="button--filter" name="pets" id="pet-select">
+            <option value="">Filtres</option>
+            <option value="magique">Magique</option>
+            <option value="potion">Potion</option>
+            <option value="arme">Arme</option>
+            <option value="armure">Armure</option>
+            <option value="bouclier">Bouclier</option>
+            <option value="ingrédient">Ingrédient</option>
+            <option value="déco">Déco</option>
+            <option value="services">Services</option>
+            <option value="artefact">Artefact</option>
+            <option value="familier">Familier</option>
+            <option value="vêtement">Vêtement</option>
+            <option value="nourriture">Nourriture</option>
+        </select>
+
+        <ul>
+            <?= getAllProducts($dbCo) ?>
+        </ul>
+
+
         <form action="" method="post">
             <ul id="cart">
                 <li data-item="">
