@@ -61,16 +61,26 @@ generateToken();
                     </form>
                 </section>
             </div>
-
-            <form action="" method="post">
-                <ul id="cart"></ul>
-                <input type="submit" value="Valider encaissement">
-                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <input type="hidden" name="action" value="new-ticket">
-            </form>
         </div>
-    </main>
 
+        <section class="receipt">
+            <div class="receipt_content">
+                <div class="receipt_sum">
+                    <p>Sous total</p>
+                    <p>Sous total</p>
+                </div>
+                <div class="receipt_separator"></div>
+                <div class="receipt_sum_tax">
+                    <p class="text--tax">Total taxe 13% incluse</p>
+                    <p class="text--tax">Sous total</p>
+                </div>
+                <div class="validation-content">
+                    <button class="button--valid-sale">Valider encaissement</button>
+                </div>
+            </div>
+            <button class="cart__button"></button>
+        </section>
+    </main>
 
     <header class="header">
         <div class="hamburger">

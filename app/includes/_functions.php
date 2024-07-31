@@ -174,9 +174,7 @@ function checkSaleErrors()
  */
 function fetchProducts(PDO $dbCo)
 {
-
-    $query = $dbCo->prepare("
-    SELECT * 
+    $query = $dbCo->prepare("SELECT *
     FROM product;");
 
     $datas = $query->fetchAll(PDO::FETCH_ASSOC);
