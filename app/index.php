@@ -29,6 +29,7 @@ generateToken();
             </ul>
         </section>
 
+
         
 
         <select class="button--filter" name="pets" id="pet-select">
@@ -50,6 +51,7 @@ generateToken();
         <ul>
             <?= getAllProducts($dbCo) ?>
         </ul>
+>>>>>>>>> Temporary merge branch 2
 
         <form action="" method="post">
             <ul id="cart">
