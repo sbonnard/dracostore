@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : lun. 29 juil. 2024 à 12:34
+-- Généré le : mar. 30 juil. 2024 à 14:39
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -70,7 +70,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id_client`, `lastname`, `firstname`, `email`) VALUES
-(1, 'Crosland', 'Adélie', 'acrosland0@icq.com'),
+(1, 'Clients sans compte', '', ''),
 (2, 'Rakes', 'Lucrèce', 'erakes1@ovh.net'),
 (3, 'Firebrace', 'Maï', 'tfirebrace2@bloglines.com'),
 (4, 'Harriday', 'Johnny', 'tharriday3@zimbio.com'),
@@ -333,26 +333,27 @@ CREATE TABLE `product` (
   `product_name` varchar(150) DEFAULT NULL,
   `price` decimal(15,1) NOT NULL,
   `id_tax` int UNSIGNED NOT NULL DEFAULT '1',
-  `id_category` int UNSIGNED NOT NULL
+  `id_category` int UNSIGNED DEFAULT NULL,
+  `image_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `product`
 --
 
-INSERT INTO `product` (`id_product`, `stock`, `product_name`, `price`, `id_tax`, `id_category`) VALUES
-(13, 12, 'Porte-Clé Gourdin', 11.1, 1, 7),
-(14, 42, 'Slip Elfique', 0.3, 1, 11),
-(15, 7, 'Potion de visibilité', 1.0, 1, 2),
-(16, 49, 'Bile de Goule', 1.5, 1, 6),
-(17, 2, 'Épée émoussée', 32.3, 1, 3),
-(18, 15, 'Bouclier Biscuit', 25.5, 1, 5),
-(19, 8, 'Gallinule de compagnie', 8.0, 1, 10),
-(20, 11, 'Gnôle Allume-Dragon', 1.5, 1, 12),
-(21, 4, 'Élixir de Vie', 16.2, 1, 2),
-(22, 78, 'Parchemin de Boule de Feu', 2.3, 1, 1),
-(23, 1, 'Amulette de résurrection', 122.0, 1, 9),
-(24, 51, 'Photo dédicacée de Sieur David le Hardi', 81.3, 1, 9);
+INSERT INTO `product` (`id_product`, `stock`, `product_name`, `price`, `id_tax`, `id_category`, `image_url`) VALUES
+(13, 12, 'Porte-Clé Gourdin', 11.1, 1, 7, 'gourdin.webp'),
+(14, 42, 'Slip Elfique', 0.3, 1, 11, 'slip-pour-david.webp'),
+(15, 7, 'Potion de visibilité', 1.0, 1, 2, 'potion-visibilite.webp'),
+(16, 49, 'Bile de Goule', 1.5, 1, 6, 'bile-goule.webp'),
+(17, 2, 'Épée émoussée', 32.3, 1, 3, 'epee.webp'),
+(18, 15, 'Bouclier Biscuit', 25.5, 1, 5, 'shield-biscuit.webp'),
+(19, 8, 'Gallinule de compagnie', 8.0, 1, 10, 'gallinule.webp'),
+(20, 11, 'Gnôle Allume-Dragon', 1.5, 1, 12, 'gnole.webp'),
+(21, 4, 'Élixir de Vie', 16.2, 1, 2, 'elixir-vie.webp'),
+(22, 78, 'Parchemin de Boule de Feu', 2.3, 1, 1, 'scroll.webp'),
+(23, 1, 'Amulette de résurrection', 122.0, 1, 9, 'amulette.webp'),
+(24, 51, 'Photo dédicacée de Sieur David le Hardi', 81.3, 1, 9, 'lord-david.webp');
 
 -- --------------------------------------------------------
 
@@ -448,9 +449,9 @@ INSERT INTO `tax` (`id_tax`, `percentage`) VALUES
 CREATE TABLE `ticket` (
   `id_ticket` int UNSIGNED NOT NULL,
   `ticket_date` datetime NOT NULL,
-  `id_seller` int UNSIGNED NOT NULL,
-  `id_reward` int UNSIGNED NOT NULL,
-  `id_client` int UNSIGNED NOT NULL
+  `id_seller` int UNSIGNED NOT NULL DEFAULT '1',
+  `id_reward` int UNSIGNED NOT NULL DEFAULT '1',
+  `id_client` int UNSIGNED DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -1457,7 +1458,8 @@ INSERT INTO `ticket` (`id_ticket`, `ticket_date`, `id_seller`, `id_reward`, `id_
 (997, '2018-06-04 00:00:00', 1, 1, 89),
 (998, '2015-12-30 00:00:00', 1, 1, 242),
 (999, '2020-09-16 00:00:00', 1, 1, 55),
-(1000, '2019-09-09 00:00:00', 1, 1, 191);
+(1000, '2019-09-09 00:00:00', 1, 1, 191),
+(1001, '2024-07-30 00:00:00', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1583,7 +1585,7 @@ ALTER TABLE `tax`
 -- AUTO_INCREMENT pour la table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id_ticket` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id_ticket` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --
 -- AUTO_INCREMENT pour la table `update_price`
