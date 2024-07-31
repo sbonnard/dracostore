@@ -6,17 +6,8 @@ include 'includes/_functions.php';
 include 'includes/_database.php';
 include 'includes/_message.php';
 
-$product = fetchProducts($dbCo);
-var_dump($product);
-header('Content-type:application/json');
+header('Content-Type: application/json');
 
+$products = fetchProducts($dbCo);
 
-
-$inputData = json_decode(file_get_contents('php://input'), true);
-
-if (!isset($inputData['action'])) {
-    addError('no_action');
-}
-
-// Check CSRF
-preventFromCSRFAPI($inputData);
+echo json_encode($products);

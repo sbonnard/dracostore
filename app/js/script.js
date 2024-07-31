@@ -1,5 +1,6 @@
 import './../scss/style.scss';
 
+
 // Hamburger Navigation //
 
 const burgerMenu = document.getElementById('hamburger-menu-icon');
@@ -10,11 +11,12 @@ burgerMenu.addEventListener('click', function () {
     overlay.classList.toggle("overlay");
 });
 
+
 // FETCH PRODUCTS FROM DATABASE
 
-async function fetchProductDatas() {
+async function fetchProductDatas(params) {
     try {
-        const url = '../api.php';
+        const url = '../api.php?' + params;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -22,9 +24,18 @@ async function fetchProductDatas() {
         }
 
         const data = await response.json();
-        return data.map(product => ({ id: product.id_product, name: product.product_name, price: product.price }));
+
+        console.log(data);
+
+        return data.map(product => ({
+            id: product.id_product,
+            name: product.product_name,
+            price: product.price,
+            stock: product.stock,
+            image_url: product.image_url
+        }));
     } catch (error) {
-        console.error('Failed to fetch RPG data:', error);
+        console.error('Failed to fetch product data:', error);
         return [];
     }
 }
@@ -41,17 +52,20 @@ console.log(productCards, cart);
 
 productCards.forEach(card => {
     card.addEventListener('click', function () {
-        const productId = card.dataset.productId;
+        
+        const productId = card.dataset.productCard;
         const productName = card.dataset.productName;
         const productPrice = card.dataset.productPrice;
-
-        // if (cartItems.find(item => item.id === productId)) {
-        //     console.log('Item is already in the cart');
-        //     return;
-        // }
-
+        
+        if (cartItems.find(item => item.id === productId)) {
+            console.log('Item is already in the cart');
+            return;
+        }
+        
         const item = { id: productId, name: productName, price: productPrice };
         cartItems.push(item);
+        
+        console.log(item.id, item.name, item.price);
 
         const clone = document.importNode(template.content, true);
 
@@ -67,9 +81,8 @@ productCards.forEach(card => {
         cart.appendChild(clone);
     });
 });
-// addEventListener.productCard('click', function(){
-//     const clone = document.importNode(template.content, true)
-// })
+
+
 
 // sale //
 
@@ -80,13 +93,26 @@ const itemLst = document.querySelectorAll('[data-item]');
 
 
 btnDelete.forEach(btn => {
-    
+
     console.log(btn);
- 
-    btn.addEventListener('click', function(e) {
+
+    btn.addEventListener('click', function (e) {
         console.log("hello");
         btn.closest('[data-item]').remove();
     })
 });
 
 
+cart.addEventListener('click', function (event) {
+    if (event.target.matches('[data-product-delete]')) {
+        const item = event.target.closest('[data-item]');
+        if (item) {
+            const productId = item.querySelector('[data-product-ref]').value;
+            const index = cartItems.findIndex(i => i.id === productId);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+            }
+            item.remove();
+        }
+    }
+});
