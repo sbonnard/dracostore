@@ -75,20 +75,26 @@ generateToken();
         <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
         <button class="button--hood"></button>
     </header>
+    <div class="">
+
+    </div>
     <section class="receipt">
-        <div class="receipt_sum">
-            <p>Sous total</p>
-            <p>Sous total</p>
+        <div class="receipt_content" >
+            <div class="receipt_sum">
+                <p>Sous total</p>
+                <p>Sous total</p>
+            </div>
+            <div class="receipt_separator"></div>
+            <div class="receipt_sum_tax">
+                <p class="text--tax">Total taxe 13% incluse</p>
+                <p class="text--tax">Sous total</p>
+            </div>
+            <div class="validation-content">
+                <button class="button--valid-sale">Valider encaissement</button>
+            </div>
         </div>
-        <div class="receipt_sum_tax">
-            <p class="text--tax">Total taxe 13% incluse</p>
-            <p class="text--tax">Sous total</p>
-        </div>
-        <div>
-            <button>Valider encaissement</button>
-        </div>
-        <button class="cart"></button>
-    </section>
+            <button class="cart"></button>
+    </section
 
     <template id="cart-itm">
         <li data-item="">
