@@ -48,28 +48,8 @@ generateToken();
             <option value="nourriture">Nourriture</option>
         </select>
 
-        <ul>
-            <?= getAllProducts($dbCo) ?>
-        </ul>
-
-
         <form action="" method="post">
-            <ul id="cart">
-                <li data-item="">
-                    <h2 data-product-name="">Produit</h2>
-                    <p data-product-price="">1.1</p>
-                    <button type="button" data-product-delete="">X</button>
-                    <input type="number" name="quantity" id="quantity" value="1">
-                    <input type="hidden" name="" value="id_product">
-                </li>
-                <li data-item="">
-                    <h2 data-product-name="">Produit</h2>
-                    <p data-product-price="">1.1</p>
-                    <button type="button" data-product-delete="">X</button>
-                    <input type="number" name="quantity" id="quantity" value="1">
-                    <input type="hidden" name="" value="id_product">
-                </li>
-            </ul>
+            <ul id="cart"></ul>
             <input type="submit" value="Valider encaissement">
             <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
             <input type="hidden" name="action" value="new-ticket">
