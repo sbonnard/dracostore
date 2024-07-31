@@ -18,11 +18,8 @@
 
 .searchbar{
     background-color: $beige;
-    color: $brown;
-
     border: 1px solid #6F3713;
     border-radius:2px;
-
 }
 
 .searchbar:focus{
@@ -40,12 +37,16 @@
     background-image: url(../../img/magic-wand\ 1.svg);
     background-repeat: no-repeat;
     background-position:  right 10% bottom 45%;;
+    margin-bottom: 1rem;
 }
 
 .border-searchbar:focus{
     outline:none !important;
     border:2px solid $brown;
+}
 
+.border-searchbar::placeholder{
+    color: $brown;
 }
 
 

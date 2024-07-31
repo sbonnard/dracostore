@@ -1,6 +1,5 @@
 import './../scss/style.scss';
 
-
 // Hamburger Navigation //
 
 const burgerMenu = document.getElementById('hamburger-menu-icon');
@@ -10,7 +9,6 @@ burgerMenu.addEventListener('click', function () {
     this.classList.toggle("close");
     overlay.classList.toggle("overlay");
 });
-
 
 // FETCH PRODUCTS FROM DATABASE
 
@@ -39,7 +37,6 @@ async function fetchProductDatas(params) {
         return [];
     }
 }
-
 
 // CART //
 
@@ -83,40 +80,45 @@ productCards.forEach(card => {
         imageProduct.srcset = item.image;
 
         cart.appendChild(clone);
+
+        updateDeleteButtons(); // Mettre à jour les boutons de suppression après l'ajout
     });
 });
 
+// Mise à jour des boutons de suppression
 
+function updateDeleteButtons() {
+    const btnDelete = document.querySelectorAll('[data-product-delete]');
+    const itemLst = document.querySelectorAll('[data-item]');
 
-// sale //
-
-const btnDelete = document.querySelectorAll('[data-product-delete]');
-const itemLst = document.querySelectorAll('[data-item]');
-// const btn = btnDelete.closest('[data-item]');
-
-
-
-btnDelete.forEach(btn => {
-
-    console.log(btn);
-
-    btn.addEventListener('click', function (e) {
-        console.log("hello");
-        btn.closest('[data-item]').remove();
-    })
-});
-
+    btnDelete.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const itemContainer = btn.closest('.cart__item-container');
+            if (itemContainer) {
+                const productId = itemContainer.querySelector('[data-product-ref]').value;
+                const index = cartItems.findIndex(i => i.id === productId);
+                if (index !== -1) {
+                    cartItems.splice(index, 1);
+                }
+                itemContainer.remove();
+            }
+        });
+    });
+}
 
 cart.addEventListener('click', function (event) {
     if (event.target.matches('[data-product-delete]')) {
-        const item = event.target.closest('[data-item]');
-        if (item) {
-            const productId = item.querySelector('[data-product-ref]').value;
+        const itemContainer = event.target.closest('.cart__item-container');
+        if (itemContainer) {
+            const productId = itemContainer.querySelector('[data-product-ref]').value;
             const index = cartItems.findIndex(i => i.id === productId);
             if (index !== -1) {
                 cartItems.splice(index, 1);
             }
-            item.remove();
+            itemContainer.remove();
         }
     }
 });
+
+// Initialiser les boutons de suppression au chargement
+updateDeleteButtons();
