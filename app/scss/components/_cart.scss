@@ -3,8 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../../img/Chevalier.svg);
     padding: 1.5rem 0;
+
+&__background {
+    background-image: url(../../img/Chevalier.svg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100vw;
+}
 
     &__small-container {
         display: flex;
