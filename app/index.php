@@ -26,7 +26,7 @@ generateToken();
 
         
 
-        <select name="pets" id="pet-select">
+        <select class="button--filter" name="pets" id="pet-select">
             <option value="">Filtres</option>
             <option value="magique">Magique</option>
             <option value="potion">Potion</option>
