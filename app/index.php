@@ -47,21 +47,21 @@ generateToken();
                 <option value="vêtement">Vêtement</option>
                 <option value="nourriture">Nourriture</option>
             </select>
+        </div>
 
-            <div class="cart__background">
-                <section class="cart">
+            <div class="cart__container">
+                <section class="cart hidden" id="cart">
                     <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
                     <form action="" method="post">
                         <h3 class="title">Panier</h3>
                         <div class="separator"></div>
-                        <ul class="cart" id="cart"></ul>
+                        <ul class="cart"></ul>
                         <input type="submit" value="Valider encaissement">
                         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                         <input type="hidden" name="action" value="new-ticket">
                     </form>
                 </section>
             </div>
-        </div>
 
         <section class="receipt">
             <div class="receipt_content">
@@ -78,7 +78,7 @@ generateToken();
                     <button class="button--valid-sale">Valider encaissement</button>
                 </div>
             </div>
-            <button class="cart__button"></button>
+            <button id="cart-button-display" class="cart__button"></button>
         </section>
     </main>
 

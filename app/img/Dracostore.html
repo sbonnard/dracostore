@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://localhost:8383/index.php#cart_menu -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dracostore</title>
+        <!-- if development -->
+    <script type="module" src="./Dracostore_files/client"></script>
+    <script type="module" src="./Dracostore_files/script.js.téléchargement"></script>
+    <style type="text/css" data-vite-dev-id="C:/Users/stagiaire/Desktop/Visual Studio/dracostore/app/scss/style.scss">/* Colours */
+/* Fonts */
+@font-face {
+  font-family: "lancelot";
+  src: url(/fonts/lancelot-regular.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "lavishly";
+  src: url(/fonts/lavishly-yours-latin-400-normal.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url(/fonts/montserrat-regular-webfont.woff2) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat-bold";
+  src: url(/fonts/montserrat-bold-webfont.woff2) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+h3, p {
+  font-family: "lancelot";
+  font-size: 1.25rem;
+  color: #FEFAD4;
+}
+:root {
+  font-size: 16px;
+  font-family: "lancelot";
+}
+/* RESET  */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+input[type=checkbox] {
+  appearance: none;
+  cursor: pointer;
+}
+input[type=text] {
+  appearance: none;
+}
+body {
+  font-size: 1rem;
+  background-color: #FEFAD4;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #FEFAD4;
+}
+/* Hamburger */
+@media screen and (max-width: 768px) {
+  .hamburger__link {
+    font-size: 1.25rem;
+  }
+  .hamburger__menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 22.5rem;
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 1.25rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .hamburger__menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    background: black;
+    line-height: 4;
+  }
+}
+@media screen and (min-width: 764px) {
+  .hamburger {
+    display: none;
+  }
+}
+.product__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media screen and (min-width: 768px) {
+  .product__container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+.product__img {
+  max-width: 15rem;
+}
+.product__infosPrice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 30%;
+}
+.product__card {
+  margin: 0.5rem;
+  filter: sepia(70%);
+  width: 10.25rem;
+  height: 8.813rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product__card-img {
+  position: relative;
+  border: 2px solid #6F3713;
+  border-radius: 2px;
+}
+.product__card-infos {
+  position: absolute;
+  left: 10%;
+  top: 40%;
+}
+.product__card-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*FONT*/
+.search-title {
+  font-family: "lancelot";
+  font-size: 1.5rem;
+  color: #6F3713;
+  padding: 10px 150px 10px 20px;
+}
+/*ICON*/
+.wand-icon {
+  width: 2rem;
+}
+/*MAIN*/
+.searchbar {
+  background-color: #FEFAD4;
+  border: 1px solid #6F3713;
+  border-radius: 2px;
+}
+.searchbar:focus {
+  outline: none !important;
+  border: 1px solid #6F3713;
+}
+.border-searchbar {
+  border: 1px solid #6F3713;
+  border-radius: 2px;
+  font-family: "lancelot";
+  background-image: url("../../img/magic-wand\ 1.svg");
+  background-repeat: no-repeat;
+  background-position: right 10% bottom 45%;
+  margin-bottom: 1rem;
+}
+.border-searchbar:focus {
+  outline: none !important;
+  border: 2px solid #6F3713;
+}
+.border-searchbar::placeholder {
+  color: #6F3713;
+}
+input {
+  background-color: #FEFAD4;
+  color: #6F3713;
+  border: 1px solid #6F3713;
+  border-radius: 2px;
+}
+.button--hood {
+  background-image: url(../../img/little-red-riding-hood.svg);
+  width: 2.75rem;
+  aspect-ratio: 1;
+}
+.button--filter {
+  background: radial-gradient(#FEFAD4 50%, #6F3713);
+  padding: 0.5rem 2rem;
+}
+.button----valid-sale {
+  color: #FEFAD4;
+}
+.receipt_content {
+  background-color: #a66c47;
+  color: #FEFAD4;
+  padding: 1rem;
+}
+.receipt_pseudo-element {
+  height: 2rem;
+}
+.receipt_separator::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #FEFAD4;
+  margin-bottom: 1rem;
+}
+.receipt_sum, .receipt_sum_tax {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.validation-content {
+  display: flex;
+  justify-content: center;
+}
+.button--valid-sale {
+  color: #6F3713;
+  background: linear-gradient(90deg, rgb(166, 108, 71) 0%, rgb(254, 250, 212) 50%, rgb(166, 108, 71) 100%);
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  border: solid #6F3713 8px;
+  border-style: double;
+}
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  position: absolute;
+  height: 100vh;
+  background-color: #FEFAD4;
+}
+.cart__background {
+  background-image: url(../../img/Chevalier.svg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+}
+.cart__small-container {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  width: 15.625rem;
+  justify-content: space-between;
+}
+.cart__itm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+.cart__image {
+  width: 3.75rem;
+  opacity: 0.85;
+  filter: brightness(50%);
+  border: 2px solid #d1bfa4;
+}
+.cart__product-name {
+  font-size: 1.5rem;
+  font-family: "lancelot";
+  color: #6F3713;
+  max-width: 15.625rem;
+}
+.cart__delete-button {
+  background-image: url(../../img/delete.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 2.125rem;
+  aspect-ratio: 1;
+}
+.cart__menu {
+  z-index: 1;
+  min-width: 100%;
+  min-height: 22.5rem;
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  padding-top: 1.25rem;
+  transition: all 0.3s ease-in-out;
+}
+.cart__menu.overlay {
+  visibility: visible;
+  opacity: 1;
+  background: black;
+  line-height: 4;
+}
+.cart__button {
+  width: 100%;
+  height: 4rem;
+  background-image: url("../../img/panier.png");
+  background-size: contain;
+  position: relative;
+}
+.container {
+  max-width: 22.5rem;
+  margin: auto;
+}
+.input--number {
+  width: 6.125rem;
+  text-align: center;
+}
+.title {
+  font-family: "lancelot";
+  text-align: center;
+  color: #6F3713;
+  font-size: 1.75rem;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.separator:after {
+  display: block;
+  content: "";
+  width: 19.875rem;
+  height: 1px;
+  background-color: #6F3713;
+  justify-content: center;
+}
+.hidden {
+  display: none;
+}</style></head>
+
+<body>
+
+    <main>
+        <div class="container">
+            <h1>Hello</h1>
+            <section>
+                <ul class="product__container">
+                    
+        <li class="product__card">
+            <button data-product-card="13" data-product-name="Porte-Clé Gourdin" data-product-price="11.1" data-product-image="img/gourdin.webp">
+            <img class="product__card-img" src="./Dracostore_files/gourdin.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Porte-Clé Gourdin</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">11.1<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>12</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="14" data-product-name="Slip Elfique" data-product-price="0.3" data-product-image="img/slip-pour-david.webp">
+            <img class="product__card-img" src="./Dracostore_files/slip-pour-david.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Slip Elfique</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">0.3<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>42</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="15" data-product-name="Potion de visibilité" data-product-price="1.0" data-product-image="img/potion-visibilite.webp">
+            <img class="product__card-img" src="./Dracostore_files/potion-visibilite.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Potion de visibilité</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">1.0<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>7</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="16" data-product-name="Bile de Goule" data-product-price="1.5" data-product-image="img/bile-goule.webp">
+            <img class="product__card-img" src="./Dracostore_files/bile-goule.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Bile de Goule</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">1.5<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>49</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="17" data-product-name="Épée émoussée" data-product-price="32.3" data-product-image="img/epee.webp">
+            <img class="product__card-img" src="./Dracostore_files/epee.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Épée émoussée</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">32.3<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>2</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="18" data-product-name="Bouclier Biscuit" data-product-price="25.5" data-product-image="img/shield-biscuit.webp">
+            <img class="product__card-img" src="./Dracostore_files/shield-biscuit.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Bouclier Biscuit</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">25.5<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>15</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="19" data-product-name="Gallinule de compagnie" data-product-price="8.0" data-product-image="img/gallinule.webp">
+            <img class="product__card-img" src="./Dracostore_files/gallinule.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Gallinule de compagnie</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">8.0<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>8</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="20" data-product-name="Gnôle Allume-Dragon" data-product-price="1.5" data-product-image="img/gnole.webp">
+            <img class="product__card-img" src="./Dracostore_files/gnole.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Gnôle Allume-Dragon</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">1.5<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>11</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="21" data-product-name="Élixir de Vie" data-product-price="16.2" data-product-image="img/elixir-vie.webp">
+            <img class="product__card-img" src="./Dracostore_files/elixir-vie.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Élixir de Vie</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">16.2<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>4</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="22" data-product-name="Parchemin de Boule de Feu" data-product-price="2.3" data-product-image="img/scroll.webp">
+            <img class="product__card-img" src="./Dracostore_files/scroll.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Parchemin de Boule de Feu</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">2.3<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>78</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="23" data-product-name="Amulette de résurrection" data-product-price="122.0" data-product-image="img/amulette.webp">
+            <img class="product__card-img" src="./Dracostore_files/amulette.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Amulette de résurrection</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">122.0<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>1</p>
+                    </div>
+                </div>
+            </button>
+        </li>
+        <li class="product__card">
+            <button data-product-card="24" data-product-name="Photo dédicacée de Sieur David le Hardi" data-product-price="81.3" data-product-image="img/lord-david.webp">
+            <img class="product__card-img" src="./Dracostore_files/lord-david.webp" alt="">
+                <div class="product__card-infos">
+                    <h3>Photo dédicacée de Sieur David le Hardi</h3>
+                    <div class="product__infosPrice">
+                        <p class="product__price">81.3<img src="./Dracostore_files/coin.svg" alt="pièce d&#39;or"></p>
+                        <p>51</p>
+                    </div>
+                </div>
+            </button>
+        </li>                </ul>
+            </section>
+
+
+
+
+            <select class="button--filter" name="pets" id="pet-select">
+                <option value="">Filtres</option>
+                <option value="magique">Magique</option>
+                <option value="potion">Potion</option>
+                <option value="arme">Arme</option>
+                <option value="armure">Armure</option>
+                <option value="bouclier">Bouclier</option>
+                <option value="ingrédient">Ingrédient</option>
+                <option value="déco">Déco</option>
+                <option value="services">Services</option>
+                <option value="artefact">Artefact</option>
+                <option value="familier">Familier</option>
+                <option value="vêtement">Vêtement</option>
+                <option value="nourriture">Nourriture</option>
+            </select>
+
+            <div class="cart__background">
+                <section class="cart" id="cart">
+                    <input type="text" class="border-searchbar search-title" placeholder="Rechercher..">
+                    <form action="http://localhost:8383/index.php" method="post">
+                        <h3 class="title">Panier</h3>
+                        <div class="separator"></div>
+                        <ul class="cart"></ul>
+                        <input type="submit" value="Valider encaissement">
+                        <input type="hidden" name="token" value="b5895d95453112c362db25367a438a45">
+                        <input type="hidden" name="action" value="new-ticket">
+                    </form>
+                
+        <div class="cart__item-container">
+            <li class="cart__itm" data-item="">
+                <img class="cart__image" data-product-image="" src="http://localhost:8383/index.php" alt="" srcset="img/elixir-vie.webp">
+                <div class="flex-column">
+                    <h2 class="cart__product-name" data-product-name="">Élixir de Vie</h2>
+                    <div class="cart__small-container">
+                        <input class="input--number" type="number" name="quantity" value="1">
+                        <input type="hidden" name="" data-product-ref="" value="21">
+                        <button class="cart__delete-button" type="button" data-product-delete=""></button>
+                    </div>
+                </div>
+            </li>
+            <div class="separator"></div>
+        </div>
+    </section>
+            </div>
+        </div>
+
+        <section class="receipt">
+            <div class="receipt_content">
+                <div class="receipt_sum">
+                    <p>Sous total</p>
+                    <p>Sous total</p>
+                </div>
+                <div class="receipt_separator"></div>
+                <div class="receipt_sum_tax">
+                    <p class="text--tax">Total taxe 13% incluse</p>
+                    <p class="text--tax">Sous total</p>
+                </div>
+                <div class="validation-content">
+                    <button class="button--valid-sale">Valider encaissement</button>
+                </div>
+            </div>
+            <button id="cart-button-display" class="cart__button"></button>
+        </section>
+    </main>
+
+    <header class="header">
+        <div class="hamburger">
+            <a href="http://localhost:8383/index.php#menu" id="hamburger-menu-icon">
+                <img src="./Dracostore_files/hamburger.svg" alt="Menu Hamburger">
+            </a>
+        </div>
+        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
+            <ul id="nav-list">
+                <li>
+                    <a href="http://localhost:8383/index.php" aria-current="page">Accueil</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <img src="./Dracostore_files/dracostore-logo-text.webp" alt="Logo du Dracostore">
+        <button class="button--hood"></button>
+    </header>
+
+    <template id="cart-itm"></template>
+
+
+    <script type="module" src="./Dracostore_files/script(1).js.téléchargement"></script>
+
+
+</body></html>
