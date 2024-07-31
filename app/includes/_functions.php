@@ -38,7 +38,7 @@ function getAllProducts(PDO $dbCo)
 
     while ($product = $query->fetch()) {
 
-        echo '
+       echo '
         <li class="product__card">
             <button data-product-card="' . $product["id_product"] . '" data-product-name="' . $product["product_name"] . '" data-product-price="' . $product["price"] . '">
                 <img class="product__img" src="img/' . $product["image_url"] . '" alt="">
@@ -61,11 +61,13 @@ function sumSale(PDO $dbCo, $idTicket)
 {
 
     $query = $dbCo->query("SELECT SUM(price*quantity) as total_price, id_ticket
+
     FROM product
         JOIN sales USING (id_product)
         JOIN ticket USING (id_ticket)
     WHERE id_ticket = $idTicket
     GROUP by id_ticket;");
+
 
     $infoTotal =  $query->fetch();
 
@@ -166,6 +168,7 @@ function checkSaleErrors()
 
 function fetchProducts(PDO $dbCo)
 {
+
     $query = $dbCo->prepare("
     SELECT * 
     FROM product;");
