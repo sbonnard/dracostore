@@ -1,0 +1,39 @@
+.cart {
+
+    &__small-container {
+        display: flex;
+        flex-direction: row;
+        height: 2rem;
+        justify-content: space-between;
+    }
+
+    &__itm {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+        margin: 1rem 0;
+    }
+
+    &__image {
+        width: 3.75rem;
+        opacity: 0.85;
+        filter: brightness(50%);
+        border: 2px solid $light-brown;
+    }
+
+
+    &__product-name {
+        font-size: 1.5rem;
+        font-family: 'lancelot';
+        color: $brown;
+    }
+
+    &__delete-button {
+        background-image: url(../../img/delete.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 2.125rem;
+        aspect-ratio: 1;
+    }
+}
