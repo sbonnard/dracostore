@@ -3,25 +3,51 @@
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        @media screen and (min-width: 768px) {
+            & {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
     }
 
     &__img {
         max-width: 15rem;
     }
 
-    &__price {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    &__infosPrice {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 30%;
     }
 
     &__card {
+        margin: 0.5rem;
+        filter: sepia(70%);
+        width: 10.25rem;
+        height: 8.813rem;
         display: flex;
-        border: 2px solid black;
-        gap: 2rem;
-    }
+        justify-content: center;
+        align-items: center;
 
-    @media screen and (min-width: 768px) {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        &-img {
+            position: relative;
+            border: 2px solid $brown;
+            border-radius: 2px;
+        }
+
+
+        &-infos {
+            position: absolute;
+            left: 10%;
+            top: 40%;
+        }
+
+        &-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
