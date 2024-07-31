@@ -28,7 +28,8 @@ function redirectTo(?string $url = null): void
  * @param PDO $dbCo data base
  * @return void
  */
-function getAllProducts (PDO $dbCo) {
+function getAllProducts(PDO $dbCo)
+{
 
     $query = $dbCo->query("SELECT id_product, stock, product_name, price, id_tax, id_category, image_url
     FROM product");
@@ -37,10 +38,10 @@ function getAllProducts (PDO $dbCo) {
 
     while ($product = $query->fetch()) {
 
-        echo '
+       echo '
         <li class="product__card">
-            <button data-product-card="">
-                <img class="product__img" src="img/' . $product["image_url"] . '" alt="">
+            <button data-product-card="' . $product["id_product"] . '" data-product-name="' . $product["product_name"] . '" data-product-price="' . $product["price"] . '" data-product-image="' . $product["image_url"] . '">
+                <img class="product__img" src="' . $product["image_url"] . '" alt="">
                 <h3>' . $product["product_name"] . '</h3>
                 <p class="product__price">' . $product["price"] . '<img src="./img/coin.svg" alt="pièce d\'or"></p>
                 <p>' . $product["stock"] . '</p>
@@ -56,21 +57,23 @@ function getAllProducts (PDO $dbCo) {
  * @param PDO $dbCo
  * @return void
  */
-function sumSale (PDO $dbCo, $idTicket) {
+function sumSale(PDO $dbCo, $idTicket)
+{
 
     $query = $dbCo->query("SELECT SUM(price*quantity) as total_price, id_ticket
-FROM product
-   JOIN sales USING (id_product)
-   JOIN ticket USING (id_ticket)
-WHERE id_ticket = $idTicket
-GROUP by id_ticket;");
 
-$infoTotal =  $query->fetch();
+    FROM product
+        JOIN sales USING (id_product)
+        JOIN ticket USING (id_ticket)
+    WHERE id_ticket = $idTicket
+    GROUP by id_ticket;");
 
-return 
-    '<p>' .$infoTotal["id_ticket"]. '</p>
-    <p>' .$infoTotal["total_price"]. '</p>';
 
+    $infoTotal =  $query->fetch();
+
+    return
+        '<p>' . $infoTotal["id_ticket"] . '</p>
+    <p>' . $infoTotal["total_price"] . '</p>';
 }
 
 // function addProduct(PDO $dbCo) {
@@ -163,11 +166,18 @@ function checkSaleErrors()
     }
 }
 
-function fetchProducts(PDO $dbCo) {
-    $query = $dbCo->query("SELECT *
-    FROM product;");
+/**
+ * Fetch all products datas from database
+ *
+ * @param PDO $dbCo - The connection to database.
+ * @return void
+ */
+function fetchProducts(PDO $dbCo)
+{
 
-    $products = $query->execute();
+    $query = $dbCo->prepare("
+    SELECT * 
+    FROM product;");
 
     $datas = $query->fetchAll(PDO::FETCH_ASSOC);
 
