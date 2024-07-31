@@ -48,12 +48,8 @@ generateToken();
             <option value="nourriture">Nourriture</option>
         </select>
 
-        <ul>
-            <?= getAllProducts($dbCo) ?>
-        </ul>
 
-
-        <form action="" method="post">
+        <form action="action.php" method="post">
             <ul id="cart">
                 <li data-item="">
                     <h2 data-product-name="">Produit</h2>
@@ -94,6 +90,20 @@ generateToken();
         <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
         <button class="button--hood"></button>
     </header>
+    <section class="receipt">
+        <div class="receipt_sum">
+            <p>Sous total</p>
+            <p>Sous total</p>
+        </div>
+        <div class="receipt_sum_tax">
+            <p class="text--tax">Total taxe 13% incluse</p>
+            <p class="text--tax">Sous total</p>
+        </div>
+        <div>
+            <button>Valider encaissement</button>
+        </div>
+        <button class="cart"></button>
+    </section>
 
     <template id="cart-itm">
         <li data-item="">
