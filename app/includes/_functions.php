@@ -38,11 +38,11 @@ function getAllProducts (PDO $dbCo) {
     while ($product = $query->fetch()) {
 
         echo '
-        <li>
+        <li class="product__card">
             <button data-product-card="">
-                <img src="img/' . $product["image_url"] . '" alt="">
+                <img class="product__img" src="img/' . $product["image_url"] . '" alt="">
                 <h3>' . $product["product_name"] . '</h3>
-                <p>' . $product["price"] . '</p>
+                <p class="product__price">' . $product["price"] . '<img src="./img/coin.svg" alt="pièce d\'or"></p>
                 <p>' . $product["stock"] . '</p>
             </button>
         </li>';
@@ -163,3 +163,13 @@ function checkSaleErrors()
     }
 }
 
+function fetchProducts(PDO $dbCo) {
+    $query = $dbCo->query("SELECT *
+    FROM product;");
+
+    $products = $query->execute();
+
+    $datas = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $datas;
+}

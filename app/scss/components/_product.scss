@@ -1,20 +1,26 @@
 .product {
-        max-width: 550px;
-        width:164px;
-        height: 141px;
-        position: relative;
-        font-family: 'Lancelot';
-        color: $jaune;
-        margin: 33px;
-        overflow: hidden;
-        border-radius: 3px;
-        border-width: 20px;
-        border-color: $marron;
-        text-align: center;
-        background: url(https://unsplash.it/600/800?image=1061) center no-repeat;
-        background-size: 100%;
-      }
-    
-      .display {
-      display: block;
-      }
+
+  &__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+
+  &__img {
+      max-width: 15rem;
+  }
+
+  &__price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  &__card {
+      border: 2px solid black;
+      margin: 0.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
