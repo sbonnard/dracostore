@@ -71,6 +71,7 @@ generateToken();
         </div>
     </main>
 
+
     <header class="header">
         <div class="hamburger">
             <a href="#menu" id="hamburger-menu-icon">
@@ -88,20 +89,6 @@ generateToken();
         <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
         <button class="button--hood"></button>
     </header>
-    <section class="receipt">
-        <div class="receipt_sum">
-            <p>Sous total</p>
-            <p>Sous total</p>
-        </div>
-        <div class="receipt_sum_tax">
-            <p class="text--tax">Total taxe 13% incluse</p>
-            <p class="text--tax">Sous total</p>
-        </div>
-        <div>
-            <button>Valider encaissement</button>
-        </div>
-        <button class="cart"></button>
-    </section>
 
     <template id="cart-itm">
         <div class="cart__item-container">
