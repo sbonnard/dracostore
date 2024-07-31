@@ -48,6 +48,13 @@ generateToken();
                 <option value="nourriture">Nourriture</option>
             </select>
 
+        <form action="" method="post">
+            <ul id="cart"></ul>
+            <input type="submit" value="Valider encaissement">
+            <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+            <input type="hidden" name="action" value="new-ticket">
+        </form>
+
             <form action="" method="post">
                 <ul id="cart"></ul>
                 <input type="submit" value="Valider encaissement">
@@ -74,6 +81,20 @@ generateToken();
         <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
         <button class="button--hood"></button>
     </header>
+    <section class="receipt">
+        <div class="receipt_sum">
+            <p>Sous total</p>
+            <p>Sous total</p>
+        </div>
+        <div class="receipt_sum_tax">
+            <p class="text--tax">Total taxe 13% incluse</p>
+            <p class="text--tax">Sous total</p>
+        </div>
+        <div>
+            <button>Valider encaissement</button>
+        </div>
+        <button class="cart"></button>
+    </section>
 
     <template id="cart-itm">
         <li class="cart__itm" data-item="">
