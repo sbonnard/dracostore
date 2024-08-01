@@ -20,6 +20,7 @@ generateToken();
 
 <body>
 
+    
     <main>
         <div class="container">
             <h1>Hello</h1>
@@ -28,10 +29,10 @@ generateToken();
                     <?= getAllProducts($dbCo) ?>
                 </ul>
             </section>
-
-
-
-
+            
+            
+            
+            
             <select class="button--filter" name="pets" id="pet-select">
                 <option value="">Filtres</option>
                 <option value="magique">Magique</option>
@@ -47,26 +48,27 @@ generateToken();
                 <option value="vêtement">Vêtement</option>
                 <option value="nourriture">Nourriture</option>
             </select>
-
-            <div class="cart__background">
-                <section class="cart">
-                    <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
-                    <form action="" method="post">
-                        <h3 class="title">Panier</h3>
-                        <div class="separator"></div>
-                        <ul class="cart" id="cart"></ul>
-                        <input type="submit" value="Valider encaissement">
-                        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                        <input type="hidden" name="action" value="new-ticket">
-                    </form>
-                </section>
-            </div>
+        </div>
+        
+        <div class="cart__container">
+            <section class="cart hidden" id="cart">
+                <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
+                <form action="" method="post">
+                    <h3 class="title">Panier</h3>
+                    <div class="separator"></div>
+                    <ul class="cart"></ul>
+                    <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                    <input type="hidden" name="action" value="new-ticket">
+                </form>
+            </section>
         </div>
 
+        
         <section class="receipt">
             <div class="receipt_content">
                 <div class="receipt_sum">
                     <p>Sous total</p>
+                    <span></span>
                     <p>Sous total</p>
                 </div>
                 <div class="receipt_separator"></div>
@@ -78,9 +80,10 @@ generateToken();
                     <button class="button--valid-sale">Valider encaissement</button>
                 </div>
             </div>
-            <button class="cart__button"></button>
         </section>
     </main>
+    
+    <button id="cart-button-display" class="cart__button"></button>
 
     <header class="header">
         <div class="hamburger">
@@ -88,7 +91,7 @@ generateToken();
                 <img src="img/hamburger.svg" alt="Menu Hamburger">
             </a>
         </div>
-        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
+        <nav id="menu"class="nav hamburger__menu" aria-label="Navigation principale du site">
             <ul id="nav-list">
                 <li>
                     <a href="index.php" aria-current="page">Accueil</a>
