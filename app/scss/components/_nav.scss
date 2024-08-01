@@ -1,0 +1,36 @@
+
+.nav {
+    &__link {
+        display: inline-block;
+        text-transform: uppercase;
+        font-family: 'lancelot';
+    font-size: 2rem;
+    }
+
+    &__item {
+        color: $beige;
+    }
+
+    @media screen and (min-width: 764px) {
+            &__container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 56rem;
+                margin: auto;
+            }    
+        
+    }
+
+    @media screen and (max-width: 763px) {
+        &__container {
+             margin-bottom: 20rem; //est appliquée mais ne fonctionne pas (contrairement à padding tout seul),
+            // comme si le fond était sans fin.
+        }    
+    
+}
+
+
+   
+
+}

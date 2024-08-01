@@ -11,40 +11,33 @@
 <body>
 
     <header class="header">
-        <div class="hamburger">
-            <a href="#menu" id="hamburger-menu-icon">
-                <img src="img/hamburger.svg" alt="Menu Hamburger">
-            </a>
-        </div>
-        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
-            <ul id="nav-list">
-                <li>
-                    <a href="index.php" aria-current="page">Encaissement</a>
-                </li>
-                <li>
-                    <a href="index.php" aria-current="page">Livraison</a>
-                </li>
-                <li>
-                    <a href="index.php" aria-current="page">Base client</a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="nav-desktop" aria-label="Navigation principale du site">
-            <ul id="">
-                <li>
-                    <a href="index.php" aria-current="page">Encaissement</a>
-                </li>
-                <li>
-                    <a href="index.php" aria-current="page">Livraison</a>
-                </li>
-                <li>
-                    <a href="index.php" aria-current="page">Base client</a>
-                </li>
-            </ul>
-        </nav>
-        </div>
-        <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
-        <button class="button--hood"></button>
+        <section class="main-nav">
+            <div class="hamburger">
+                <a href="#menu" id="hamburger-menu-icon">
+                    <img src="img/hamburger.svg" alt="Menu Hamburger">
+                </a>
+            </div>
+            <div class=""> 
+            <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
+            <button class="button--hood"></button>
+            </div>
+            <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
+                <ul>
+                    <div class="nav__container">
+                        <li class="nav__item">
+                            <a class="nav__link" href="index.php" aria-current="page">Encaissement</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="index.php" aria-current="page">Livraison</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="index.php" aria-current="page">Base client</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </section>
+
     </header>
 
     <main>
@@ -52,97 +45,97 @@
         </section>
         <section class="searchbar">
 
-                <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
-             
+            <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
 
 
-                <ul class="product__container">
-                    <li class="product__card">
-                        <button data-product-card="">
-                            <img class="product__card-img" src="./img/amulette.webp" alt="">
-                            <div class="product__card-infos">
-                                <h3>Bouteille d'eau</h3>
-                                <div class="product__infosPrice">
-                                    <p>15</p>
-                                    <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
-                                </div>
+
+            <!-- <ul class="product__container">
+                <li class="product__card">
+                    <button data-product-card="">
+                        <img class="product__card-img" src="./img/amulette.webp" alt="">
+                        <div class="product__card-infos">
+                            <h3>Bouteille d'eau</h3>
+                            <div class="product__infosPrice">
+                                <p>15</p>
+                                <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
                             </div>
-                        </button>
-                    </li>
-                    <li class="product__card">
-                        <button data-product-card="">
-                            <img class="product__card-img" src="./img/amulette.webp" alt="">
-                            <div class="product__card-infos">
-                                <h3>Bouteille d'eau</h3>
-                                <div class="product__infosPrice">
-                                    <p>15</p>
-                                    <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
-                                </div>
+                        </div>
+                    </button>
+                </li>
+                <li class="product__card">
+                    <button data-product-card="">
+                        <img class="product__card-img" src="./img/amulette.webp" alt="">
+                        <div class="product__card-infos">
+                            <h3>Bouteille d'eau</h3>
+                            <div class="product__infosPrice">
+                                <p>15</p>
+                                <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
                             </div>
-                        </button>
-                    </li>
-                    <li class="product__card">
-                        <button data-product-card="">
-                            <img class="product__card-img" src="./img/amulette.webp" alt="">
-                            <div class="product__card-infos">
-                                <h3>Bouteille d'eau</h3>
-                                <div class="product__infosPrice">
-                                    <p>15</p>
-                                    <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
-                                </div>
+                        </div>
+                    </button>
+                </li>
+                <li class="product__card">
+                    <button data-product-card="">
+                        <img class="product__card-img" src="./img/amulette.webp" alt="">
+                        <div class="product__card-infos">
+                            <h3>Bouteille d'eau</h3>
+                            <div class="product__infosPrice">
+                                <p>15</p>
+                                <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
                             </div>
-                        </button>
-                    </li>
-                    <li class="product__card">
-                        <button data-product-card="">
-                            <img class="product__card-img" src="./img/amulette.webp" alt="">
-                            <div class="product__card-infos">
-                                <h3>Bouteille d'eau</h3>
-                                <div class="product__infosPrice">
-                                    <p>15</p>
-                                    <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
-                                </div>
+                        </div>
+                    </button>
+                </li>
+                <li class="product__card">
+                    <button data-product-card="">
+                        <img class="product__card-img" src="./img/amulette.webp" alt="">
+                        <div class="product__card-infos">
+                            <h3>Bouteille d'eau</h3>
+                            <div class="product__infosPrice">
+                                <p>15</p>
+                                <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
                             </div>
-                        </button>
-                    </li>
-                    <li class="product__card">
-                        <button data-product-card="">
-                            <img class="product__card-img" src="./img/amulette.webp" alt="">
-                            <div class="product__card-infos">
-                                <h3>Bouteille d'eau</h3>
-                                <div class="product__infosPrice">
-                                    <p>15</p>
-                                    <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
-                                </div>
+                        </div>
+                    </button>
+                </li>
+                <li class="product__card">
+                    <button data-product-card="">
+                        <img class="product__card-img" src="./img/amulette.webp" alt="">
+                        <div class="product__card-infos">
+                            <h3>Bouteille d'eau</h3>
+                            <div class="product__infosPrice">
+                                <p>15</p>
+                                <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
                             </div>
-                        </button>
-                    </li>
-                    <li class="product__card">
-                        <button data-product-card="">
-                            <img class="product__card-img" src="./img/amulette.webp" alt="">
-                            <div class="product__card-infos">
-                                <h3>Bouteille d'eau</h3>
-                                <div class="product__infosPrice">
-                                    <p>15</p>
-                                    <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
-                                </div>
+                        </div>
+                    </button>
+                </li>
+                <li class="product__card">
+                    <button data-product-card="">
+                        <img class="product__card-img" src="./img/amulette.webp" alt="">
+                        <div class="product__card-infos">
+                            <h3>Bouteille d'eau</h3>
+                            <div class="product__infosPrice">
+                                <p>15</p>
+                                <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
                             </div>
-                        </button>
-                    </li>
-                    <li class="product__card">
-                        <button data-product-card="">
-                            <img class="product__card-img" src="./img/amulette.webp" alt="">
-                            <div class="product__card-infos">
-                                <h3>Bouteille d'eau</h3>
-                                <div class="product__infosPrice">
-                                    <p>15</p>
-                                    <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
-                                </div>
+                        </div>
+                    </button>
+                </li>
+                <li class="product__card">
+                    <button data-product-card="">
+                        <img class="product__card-img" src="./img/amulette.webp" alt="">
+                        <div class="product__card-infos">
+                            <h3>Bouteille d'eau</h3>
+                            <div class="product__infosPrice">
+                                <p>15</p>
+                                <p class="product__card-price">2 <img src="./img/coin.svg" alt="pièce d\'or"></p>
                             </div>
-                        </button>
-                    </li>
-                    
-                </ul>
+                        </div>
+                    </button>
+                </li>
+
+            </ul> -->
 
             </div>
         </section>
