@@ -61,34 +61,37 @@ function getAllProducts(PDO $dbCo)
  * @param PDO $dbCo
  * @return void
  */
-function sumSale(PDO $dbCo, $idTicket)
+function sumSale(PDO $dbCo)
 {
 
-    $query = $dbCo->query("SELECT SUM(price*quantity) as total_price, id_ticket
+    $query = $dbCo->query("SELECT SUM(price*quantity) as total_price, id_ticket, COUNT(id_ticket) AS total_tickets
 
     FROM product
         JOIN sales USING (id_product)
         JOIN ticket USING (id_ticket)
-    WHERE id_ticket = $idTicket
+    WHERE id_ticket = 238
     GROUP by id_ticket;");
 
 
-    $infoTotal =  $query->fetch();
+    $infoTotal = $query->execute();
 
     return
-        '<p>' . $infoTotal["id_ticket"] . '</p>
-    <p>' . $infoTotal["total_price"] . '</p>';
+       '<span>'. $infoTotal . '<span>';
+
 }
 
-// function addProduct(PDO $dbCo) {
-//     $query = $dbCo->prepare('
-//     UPDATE product
-//     SET product_name = :name, price = :price, image_url = :url;');
+function getSumReceipt(PDO $dbCo) {
+    $query = $dbCo->query(
+        'SELECT SUM(price*quantity) AS no_tax_price, SUM(price * quantity * 1.13) AS tax_price, id_ticket
+        FROM product
+            JOIN sales USING (id_product)
+            JOIN ticket USING (id_ticket)
+        WHERE id_ticket = 238
+        GROUP BY id_ticket;'
+    );
 
-//     $bindValues = [
-//         'name' => 
-//     ]
-// }
+    
+}
 
 
 //////////////////////////////// TICKETS CREATION /////////////////////////////////////
