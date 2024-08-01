@@ -4,6 +4,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
 
+
         @media screen and (min-width: 768px) {
             & {
                 grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -12,42 +13,74 @@
 
     }
 
+    &__card {
+
+    }
+
+    &__btn {
+        position: relative;
+
+    }
+
     &__img {
         max-width: 15rem;
     }
 
     &__infosPrice {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 30%;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding: 0 1rem;
     }
 
     &__card {
         margin: 0.5rem;
-        filter: sepia(70%);
         width: 10.25rem;
         height: 8.813rem;
         display: flex;
         justify-content: center;
         align-items: center;
 
+        &-title {
+            padding: 0 0.5rem;
+        }
+
         &-img {
-            position: relative;
+            
             border: 2px solid $brown;
             border-radius: 2px;
+            font-size: 0;
         }
 
 
         &-infos {
+            padding-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
             position: absolute;
-            left: 10%;
-            top: 40%;
+            left: 0;
+            top: 0;
+            background-color: rgba(37, 15, 1, 0.65);
+            width: 100%;
+            height: 8.95rem;
         }
 
         &-price {
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 1rem;
         }
+
+        &-title {
+        }
+    }
+
+    &__price-content {
+        display: flex;
     }
 }
