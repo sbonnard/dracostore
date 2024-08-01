@@ -57,7 +57,6 @@ generateToken();
                     <h3 class="title">Panier</h3>
                     <div class="separator"></div>
                     <ul class="cart"></ul>
-                    <input type="submit" value="Valider encaissement">
                     <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                     <input type="hidden" name="action" value="new-ticket">
                 </form>
@@ -69,6 +68,7 @@ generateToken();
             <div class="receipt_content">
                 <div class="receipt_sum">
                     <p>Sous total</p>
+                    <span></span>
                     <p>Sous total</p>
                 </div>
                 <div class="receipt_separator"></div>
