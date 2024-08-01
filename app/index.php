@@ -47,14 +47,15 @@ generateToken();
                 <option value="vêtement">Vêtement</option>
                 <option value="nourriture">Nourriture</option>
             </select>
+        </div>
 
-            <div class="cart__background">
-                <section class="cart">
+            <div class="cart__container">
+                <section class="cart hidden" id="cart">
                     <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
                     <form action="" method="post">
                         <h3 class="title">Panier</h3>
                         <div class="separator"></div>
-                        <ul class="cart" id="cart"></ul>
+                        <ul class="cart"></ul>
                         <input type="submit" value="Valider encaissement">
                         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                         <input type="hidden" name="action" value="new-ticket">
@@ -62,13 +63,23 @@ generateToken();
                 </section>
             </div>
 
-            <form action="" method="post">
-                <ul id="cart"></ul>
-                <input type="submit" value="Valider encaissement">
-                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <input type="hidden" name="action" value="new-ticket">
-            </form>
-        </div>
+        <section class="receipt">
+            <div class="receipt_content">
+                <div class="receipt_sum">
+                    <p>Sous total</p>
+                    <p>Sous total</p>
+                </div>
+                <div class="receipt_separator"></div>
+                <div class="receipt_sum_tax">
+                    <p class="text--tax">Total taxe 13% incluse</p>
+                    <p class="text--tax">Sous total</p>
+                </div>
+                <div class="validation-content">
+                    <button class="button--valid-sale">Valider encaissement</button>
+                </div>
+            </div>
+            <button id="cart-button-display" class="cart__button"></button>
+        </section>
     </main>
 
     <header class="header">
@@ -88,20 +99,6 @@ generateToken();
         <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
         <button class="button--hood"></button>
     </header>
-    <section class="receipt">
-        <div class="receipt_sum">
-            <p>Sous total</p>
-            <p>Sous total</p>
-        </div>
-        <div class="receipt_sum_tax">
-            <p class="text--tax">Total taxe 13% incluse</p>
-            <p class="text--tax">Sous total</p>
-        </div>
-        <div>
-            <button>Valider encaissement</button>
-        </div>
-        <button class="cart"></button>
-    </section>
 
     <template id="cart-itm">
         <div class="cart__item-container">
