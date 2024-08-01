@@ -89,6 +89,9 @@
         position: sticky;
         z-index: 145;
         bottom: 0;
+        justify-content: space-around;
+        padding-left: 0;
+        gap: 0;
 
         &__container {
             display: flex;
