@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : mar. 30 juil. 2024 à 14:39
+-- Généré le : jeu. 01 août 2024 à 07:45
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -342,18 +342,18 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `stock`, `product_name`, `price`, `id_tax`, `id_category`, `image_url`) VALUES
-(13, 12, 'Porte-Clé Gourdin', 11.1, 1, 7, 'gourdin.webp'),
-(14, 42, 'Slip Elfique', 0.3, 1, 11, 'slip-pour-david.webp'),
-(15, 7, 'Potion de visibilité', 1.0, 1, 2, 'potion-visibilite.webp'),
-(16, 49, 'Bile de Goule', 1.5, 1, 6, 'bile-goule.webp'),
-(17, 2, 'Épée émoussée', 32.3, 1, 3, 'epee.webp'),
-(18, 15, 'Bouclier Biscuit', 25.5, 1, 5, 'shield-biscuit.webp'),
-(19, 8, 'Gallinule de compagnie', 8.0, 1, 10, 'gallinule.webp'),
-(20, 11, 'Gnôle Allume-Dragon', 1.5, 1, 12, 'gnole.webp'),
-(21, 4, 'Élixir de Vie', 16.2, 1, 2, 'elixir-vie.webp'),
-(22, 78, 'Parchemin de Boule de Feu', 2.3, 1, 1, 'scroll.webp'),
-(23, 1, 'Amulette de résurrection', 122.0, 1, 9, 'amulette.webp'),
-(24, 51, 'Photo dédicacée de Sieur David le Hardi', 81.3, 1, 9, 'lord-david.webp');
+(13, 12, 'Porte-Clé Gourdin', 11.1, 1, 7, 'img/gourdin.webp'),
+(14, 42, 'Slip Elfique', 0.3, 1, 11, 'img/slip-pour-david.webp'),
+(15, 7, 'Potion de visibilité', 1.0, 1, 2, 'img/potion-visibilite.webp'),
+(16, 49, 'Bile de Goule', 1.5, 1, 6, 'img/bile-goule.webp'),
+(17, 2, 'Épée émoussée', 32.3, 1, 3, 'img/epee.webp'),
+(18, 15, 'Bouclier Biscuit', 25.5, 1, 5, 'img/shield-biscuit.webp'),
+(19, 8, 'Gallinule de compagnie', 8.0, 1, 10, 'img/gallinule.webp'),
+(20, 11, 'Gnôle Allume-Dragon', 1.5, 1, 12, 'img/gnole.webp'),
+(21, 4, 'Élixir de Vie', 16.2, 1, 2, 'img/elixir-vie.webp'),
+(22, 78, 'Parchemin de Boule de Feu', 2.3, 1, 1, 'img/scroll.webp'),
+(23, 1, 'Amulette de résurrection', 122.0, 1, 9, 'img/amulette.webp'),
+(24, 51, 'Photo dédicacée de Sieur David le Hardi', 81.3, 1, 9, 'img/lord-david.webp');
 
 -- --------------------------------------------------------
 
