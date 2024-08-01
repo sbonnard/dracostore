@@ -40,13 +40,15 @@ function getAllProducts(PDO $dbCo)
 
        echo '
         <li class="product__card">
-            <button data-product-card="' . $product["id_product"] . '" data-product-name="' . $product["product_name"] . '" data-product-price="' . $product["price"] . '" data-product-image="' . $product["image_url"] . '">
+            <button class="product__btn" data-product-card="' . $product["id_product"] . '" data-product-name="' . $product["product_name"] . '" data-product-price="' . $product["price"] . '" data-product-image="' . $product["image_url"] . '">
             <img class="product__card-img" src="' . $product["image_url"] . '" alt="">
                 <div class="product__card-infos">
-                    <h3>' . $product["product_name"] . '</h3>
+                    <h3 class= "product__card-title">' . $product["product_name"] . '</h3>
                     <div class="product__infosPrice">
-                        <p class="product__price">' . $product["price"] . '<img src="./img/coin.svg" alt="pièce d\'or"></p>
-                        <p>' . $product["stock"] . '</p>
+                        <div            class="product__price-content">                      
+                            <p class="product__price">' . $product["price"] . '</p><img src="./img/coin.svg" alt="pièce d\'or">
+                        </div>
+                            <p>stock : ' . $product["stock"] . ' </p>
                     </div>
                 </div>
             </button>
