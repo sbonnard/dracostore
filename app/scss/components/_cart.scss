@@ -86,16 +86,6 @@
     // }
 
     &__button {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-        height: 4rem;
-        background: radial-gradient($beige, #A27253);
-        border: 2px solid $brown;
-        color: $brown;
-        font-family: 'lancelot';
-        font-size: 1.5rem;
         position: sticky;
         z-index: 145;
         bottom: 0;
