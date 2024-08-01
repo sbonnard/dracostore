@@ -23,18 +23,12 @@ generateToken();
 
     <main>
         <div class="container">
-            <h1>Hello</h1>
-            <section>
-                <ul class="product__container">
-                    <?= getAllProducts($dbCo) ?>
-                </ul>
-            </section>
+            <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
 
-
-
-
-            <select class="button--filter" name="pets" id="pet-select">
-                <option value="">Filtres</option>
+            <button class="button button--filter" name="pets" id="pet-select">Filtres
+                <img src="./img/bow-down.svg" alt="">
+            </button>
+            <!-- <option value="">Filtres</option>
                 <option value="magique">Magique</option>
                 <option value="potion">Potion</option>
                 <option value="arme">Arme</option>
@@ -46,13 +40,21 @@ generateToken();
                 <option value="artefact">Artefact</option>
                 <option value="familier">Familier</option>
                 <option value="vêtement">Vêtement</option>
-                <option value="nourriture">Nourriture</option>
-            </select>
+                <option value="nourriture">Nourriture</option> -->
+
+            <section>
+                <ul class="product__container">
+                    <?= getAllProducts($dbCo) ?>
+                </ul>
+            </section>
+
+
+
+
         </div>
 
         <div class="cart__container">
             <section class="cart hidden" id="cart">
-                <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
                 <form action="" method="post">
                     <h3 class="title">Panier</h3>
                     <div class="separator"></div>
@@ -88,7 +90,7 @@ generateToken();
     </main>
 
     <div class="cart__button__container">
-        <button id="cart-button-display" class="cart__button"><img src="./img/chest.svg" alt="">ACCÉDER AU PANIER</button>
+        <button id="cart-button-display" class="button cart__button"><img src="./img/chest.svg" alt="">ACCÉDER AU PANIER</button>
     </div>
 
     <header class="header">
