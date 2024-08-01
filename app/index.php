@@ -53,39 +53,39 @@ generateToken();
 
         </div>
 
-        <div class="cart__container">
-            <section class="cart hidden" id="cart">
-                <form action="" method="post">
+        <section class="cart hidden" id="see-cart">
+            <form class="cart__stuff" action="actions.php" method="post">
+                <div class="cart__container">
                     <h3 class="title">Panier</h3>
                     <div class="separator"></div>
-                    <ul class="cart"></ul>
-                    <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                    <input type="hidden" name="action" value="new-ticket">
-                </form>
-            </section>
-        </div>
+                    <ul class="cart" id="cart"></ul>
+                </div>
+                <div class="receipt_content">
+                    <div class="receipt_sum">
+                        <p class="receipt_sum flex-row">Sous total</p>
+                        <div class="flex-row receipt_sum">
+                            <div id="total-price">0</div>
+                            <img src="./img/coin.svg" alt="pièce d\'or">
+                        </div>
+                        <p class="receipt_sum">Sous total</p>
+                    </div>
+                    <div class="receipt_separator"></div>
+                    <div class="receipt_sum_tax">
+                        <p class="text--tax">Total taxe 13% incluse</p>
+                        <p class="text--tax" id="total-taxed">0</p>
+                        <img src="./img/coin.svg" alt="pièce d\'or">
+                    </div>
+                    <div class="validation-content">
+                        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                        <input type="hidden" name="action" value="create-ticket">
+                        <input type="submit" class="button--valid-sale" value="VALIDER ENCAISSEMENT">
+                    </div>
+                </div>
+            </form>
+        </section>
 
 
         <section class="receipt">
-            <div class="receipt_content">
-                <div class="receipt_sum">
-                    <p class="receipt_sum flex-row">Sous total</p>
-                    <div class="flex-row receipt_sum">
-                        <div id="total-price">0</div>
-                        <img src="./img/coin.svg" alt="pièce d\'or">
-                    </div>
-                    <p class="receipt_sum">Sous total</p>
-                </div>
-                <div class="receipt_separator"></div>
-                <div class="receipt_sum_tax">
-                    <p class="text--tax">Total taxe 13% incluse</p>
-                    <p class="text--tax" id="total-taxed">0</p>
-                    <img src="./img/coin.svg" alt="pièce d\'or">
-                </div>
-                <div class="validation-content">
-                    <button class="button--valid-sale">Valider encaissement</button>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -94,21 +94,30 @@ generateToken();
     </div>
 
     <header class="header">
-        <div class="hamburger">
-            <a href="#menu" id="hamburger-menu-icon">
-                <img src="img/hamburger.svg" alt="Menu Hamburger">
-            </a>
-        </div>
-        <nav id="menu" class="nav hamburger__menu" aria-label="Navigation principale du site">
-            <ul id="nav-list">
-                <li>
-                    <a href="index.php" aria-current="page">Accueil</a>
-                </li>
-            </ul>
-        </nav>
-        </div>
-        <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
-        <button class="button--hood"></button>
+        <section class="main-nav">
+            <div class="hamburger">
+                <a href="#menu" id="hamburger-menu-icon">
+                    <img src="img/hamburger.svg" alt="Menu Hamburger">
+                </a>
+            </div>
+            <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
+            <button class="button--hood"></button>
+            <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
+                <ul>
+                    <div class="nav__container">
+                        <li class="nav__item">
+                            <a class="nav__link" href="index.php" aria-current="page">Encaissement</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="index.php" aria-current="page">Livraison</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="index.php" aria-current="page">Base client</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </section>
     </header>
 
     <template id="cart-itm">
