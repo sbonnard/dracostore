@@ -23,7 +23,7 @@
             margin-bottom: 1rem;
         }
     }
-    
+
     &_sum,
     &_sum_tax
     {
@@ -34,6 +34,7 @@
     
     &_sum {
         font-family: 'montserrat';
+        color: $beige;
     }
 }
 

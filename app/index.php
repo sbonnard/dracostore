@@ -68,7 +68,7 @@ generateToken();
             <div class="receipt_content">
                 <div class="receipt_sum">
                     <p class="receipt_sum flex-row">Sous total</p>
-                    <div class="flex-row">
+                    <div class="flex-row receipt_sum">
                         <div id="total-price">Total: 0</div>
                         <img src="./img/coin.svg" alt="pièce d\'or">
                     </div>
