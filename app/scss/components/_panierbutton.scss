@@ -1,0 +1,19 @@
+
+.button .panierbutton{
+    color: #6F3713;
+    background: linear-gradient(90deg, rgba(166,108,71,1) 0%, rgba(254,250,212,1) 50%, rgba(166,108,71,1) 100%);
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    border: solid #6F3713 8px;
+    border-style: double;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.button__txt {
+    color: $brown;
+}
+

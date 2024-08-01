@@ -23,7 +23,7 @@
             margin-bottom: 1rem;
         }
     }
-    
+
     &_sum,
     &_sum_tax
     {
@@ -32,11 +32,15 @@
         margin-bottom: 1rem;
     }
     
-    &_sum_tax {
-    
+    &_sum {
+        font-family: 'montserrat';
     }
+
 }
 
+.text--tax {
+    font-family: 'montserrat';
+}
 
 
 .validation-content {

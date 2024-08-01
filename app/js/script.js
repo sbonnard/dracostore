@@ -26,7 +26,7 @@ async function fetchProductDatas(params) {
         return data.map(product => ({
             id: product.id_product,
             name: product.product_name,
-            price: product.price,
+            price: parseFloat(product.price),
             stock: product.stock,
             image_url: product.image_url
         }));
@@ -42,24 +42,23 @@ const cartItems = [];
 const productCards = document.querySelectorAll('[data-product-card]');
 const cart = document.getElementById('cart');
 const template = document.getElementById('cart-itm');
-
+const totalPriceElement = document.getElementById('total-price');
 
 productCards.forEach(card => {
     card.addEventListener('click', function () {
-        
         const productId = card.dataset.productCard;
         const productName = card.dataset.productName;
-        const productPrice = card.dataset.productPrice;
+        const productPrice = parseFloat(card.dataset.productPrice);
         const productImage = card.dataset.productImage;
-        
+
         if (cartItems.find(item => item.id === productId)) {
             console.log('Item is already in the cart');
             return;
         }
-        
-        const item = { id: productId, name: productName, price: productPrice, image: productImage };
+
+        const item = { id: productId, name: productName, price: productPrice, image: productImage, quantity: 1 };
         cartItems.push(item);
-        
+
         const clone = document.importNode(template.content, true);
 
         const refProduct = clone.querySelector('[data-product-ref]');
@@ -71,18 +70,21 @@ productCards.forEach(card => {
         const imageProduct = clone.querySelector('[data-product-image]');
         imageProduct.srcset = item.image;
 
+        const quantityInput = clone.querySelector('.input--number');
+        quantityInput.addEventListener('input', function () {
+            item.quantity = parseInt(this.value, 10);
+            updateTotalPrice(); // Update total price when quantity changes
+        });
+
         cart.appendChild(clone);
 
         updateDeleteButtons();
+        updateTotalPrice(); // Update total price
     });
 });
 
-// Mise à jour des boutons de suppression
-
 function updateDeleteButtons() {
     const btnDelete = document.querySelectorAll('[data-product-delete]');
-    const itemLst = document.querySelectorAll('[data-item]');
-
     btnDelete.forEach(btn => {
         btn.addEventListener('click', function (e) {
             const itemContainer = btn.closest('.cart__item-container');
@@ -93,6 +95,7 @@ function updateDeleteButtons() {
                     cartItems.splice(index, 1);
                 }
                 itemContainer.remove();
+                updateTotalPrice(); // Update total price after removal
             }
         });
     });
@@ -108,21 +111,28 @@ cart.addEventListener('click', function (event) {
                 cartItems.splice(index, 1);
             }
             itemContainer.remove();
+            updateTotalPrice(); // Update total price after removal
         }
     }
 });
 
+// Function to calculate and update the total price
+function updateTotalPrice() {
+    const totalTaxed = document.getElementById('total-taxed');
+    const totalPriceWithoutTax = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const totalPriceWithTax = totalPriceWithoutTax * 1.13; // Calculating total price with 13% tax
+
+    // Displaying both prices
+    totalPriceElement.innerText = `${totalPriceWithoutTax.toFixed(2)}`;
+    totalTaxed.innerText = `${totalPriceWithTax.toFixed(2)}`;
+}
+
 updateDeleteButtons();
 
-
-//////////////////// DISPLAY CART /////////////////////////////
-
-
-
 const displayCartBtn = document.getElementById('cart-button-display');
-
-// console.log(displayCartBtn, cart);
 
 displayCartBtn.addEventListener('click', function() {
     cart.classList.toggle('hidden');
 })
+
+console.log(cartItems);
