@@ -125,4 +125,5 @@ const displayCartBtn = document.getElementById('cart-button-display');
 
 displayCartBtn.addEventListener('click', function() {
     cart.classList.toggle('hidden');
+    displayCartBtn.classList.toggle('cart__button--reversed');
 })
