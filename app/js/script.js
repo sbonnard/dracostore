@@ -118,8 +118,13 @@ cart.addEventListener('click', function (event) {
 
 // Function to calculate and update the total price
 function updateTotalPrice() {
-    const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    totalPriceElement.innerText = `Total: ${totalPrice.toFixed(2)} `;
+    const totalTaxed = document.getElementById('total-taxed');
+    const totalPriceWithoutTax = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const totalPriceWithTax = totalPriceWithoutTax * 1.13; // Calculating total price with 13% tax
+
+    // Displaying both prices
+    totalPriceElement.innerText = `${totalPriceWithoutTax.toFixed(2)}`;
+    totalTaxed.innerText = `${totalPriceWithTax.toFixed(2)}`;
 }
 
 updateDeleteButtons();
