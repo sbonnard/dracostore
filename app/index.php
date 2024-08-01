@@ -83,15 +83,12 @@ generateToken();
                 </div>
             </form>
         </section>
-
-
-        <section class="receipt">
-        </section>
     </main>
 
     <div class="cart__button__container">
         <button id="cart-button-display" class="button cart__button"><img src="./img/chest.svg" alt="">ACCÉDER AU PANIER</button>
     </div>
+
 
     <header class="header">
         <section class="main-nav">
