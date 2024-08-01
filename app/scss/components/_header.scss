@@ -1,9 +1,31 @@
 .header {
+    display: inline-block;
+    background-color: $beige;
+
+
+}
+
+.main-nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 1.5rem;
+    // position: fixed;
     background-color: $beige;
+    gap: 4rem;
+
+    @media screen and (max-width: 768px) {
+
+        bottom: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        top: 0;
+
+        & {
+            background-color: $brown;
+        }
+    }
 }
