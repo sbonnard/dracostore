@@ -69,7 +69,7 @@ generateToken();
                 <div class="receipt_sum">
                     <p class="receipt_sum flex-row">Sous total</p>
                     <div class="flex-row receipt_sum">
-                        <div id="total-price">Total: 0</div>
+                        <div id="total-price">0</div>
                         <img src="./img/coin.svg" alt="pièce d\'or">
                     </div>
                     <p class="receipt_sum">Sous total</p>
@@ -77,7 +77,8 @@ generateToken();
                 <div class="receipt_separator"></div>
                 <div class="receipt_sum_tax">
                     <p class="text--tax">Total taxe 13% incluse</p>
-                    <p class="text--tax">Sous total</p>
+                    <p class="text--tax" id="total-taxed">0</p>
+                    <img src="./img/coin.svg" alt="pièce d\'or">
                 </div>
                 <div class="validation-content">
                     <button class="button--valid-sale">Valider encaissement</button>
@@ -86,7 +87,9 @@ generateToken();
         </section>
     </main>
 
-    <button id="cart-button-display" class="cart__button">ACCÉDER AU PANIER</button>
+    <div class="cart__button__container">
+        <button id="cart-button-display" class="cart__button"><img src="./img/chest.svg" alt="">ACCÉDER AU PANIER</button>
+    </div>
 
     <header class="header">
         <div class="hamburger">
