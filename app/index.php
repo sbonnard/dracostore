@@ -86,7 +86,7 @@ generateToken();
         </section>
     </main>
 
-    <button id="cart-button-display" class="cart__button"></button>
+    <button id="cart-button-display" class="cart__button">ACCÉDER AU PANIER</button>
 
     <header class="header">
         <div class="hamburger">
