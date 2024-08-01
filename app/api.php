@@ -11,3 +11,6 @@ header('Content-Type: application/json');
 $products = fetchProducts($dbCo);
 
 echo json_encode($products);
+
+// $inputData = json_decode(file_get_contents('php://input'), true);
+

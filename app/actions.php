@@ -19,7 +19,7 @@ if (!isset($_REQUEST['action'])) {
 preventFromCSRF();
 
 if (!empty($_POST)) {
-    if ($_POST['action'] === 'new-ticket') {
+    if ($_POST['action'] === 'create-ticket') {
         addNewTicket($dbCo);
     }
 }

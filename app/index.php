@@ -23,7 +23,7 @@ generateToken();
 
     <main>
         <div class="container">
-            <h1>Hello</h1>
+
             <section>
                 <ul class="product__container">
                     <?= getAllProducts($dbCo) ?>
@@ -32,8 +32,7 @@ generateToken();
 
 
 
-
-            <select class="button--filter" name="pets" id="pet-select">
+            <!-- <select class="button--filter" name="pets" id="pet-select">
                 <option value="">Filtres</option>
                 <option value="magique">Magique</option>
                 <option value="potion">Potion</option>
@@ -47,43 +46,48 @@ generateToken();
                 <option value="familier">Familier</option>
                 <option value="vêtement">Vêtement</option>
                 <option value="nourriture">Nourriture</option>
-            </select>
+            </select> -->
         </div>
 
         <div class="cart__container">
             <section class="cart hidden" id="cart">
                 <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
-                <form action="" method="post">
+
+
+                <form action="actions.php" method="post">
                     <h3 class="title">Panier</h3>
                     <div class="separator"></div>
                     <ul class="cart"></ul>
                     <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                    <input type="hidden" name="action" value="new-ticket">
+                    <input type="hidden" name="action" value="create-ticket">
+                    <section class="receipt">
+                        <div class="receipt_content">
+                            <div class="receipt_sum">
+                                <p class="receipt_sum flex-row">Sous total</p>
+                                <div class="flex-row receipt_sum">
+                                    <div id="total-price">Total: 0</div>
+                                    <img src="./img/coin.svg" alt="pièce d\'or">
+                                </div>
+                                <p class="receipt_sum">Sous total</p>
+                            </div>
+                            <div class="receipt_separator"></div>
+                            <div class="receipt_sum_tax">
+                                <p class="text--tax">Total taxe 13% incluse</p>
+                                <p class="text--tax" id="total-taxed">0</p>
+                                <img src="./img/coin.svg" alt="pièce d'or">
+                            </div>
+                            <div class="validation-content">
+                                <input type="submit" name="action" value="" class="button--valid-sale">Valider encaissement</input>
+                            </div>
+                        </div>
+                    </section>
+
                 </form>
             </section>
         </div>
 
 
-        <section class="receipt">
-            <div class="receipt_content">
-                <div class="receipt_sum">
-                    <p class="receipt_sum flex-row">Sous total</p>
-                    <div class="flex-row receipt_sum">
-                        <div id="total-price">Total: 0</div>
-                        <img src="./img/coin.svg" alt="pièce d\'or">
-                    </div>
-                    <p class="receipt_sum">Sous total</p>
-                </div>
-                <div class="receipt_separator"></div>
-                <div class="receipt_sum_tax">
-                    <p class="text--tax">Total taxe 13% incluse</p>
-                    <p class="text--tax">Sous total</p>
-                </div>
-                <div class="validation-content">
-                    <button class="button--valid-sale">Valider encaissement</button>
-                </div>
-            </div>
-        </section>
+
     </main>
 
     <button id="cart-button-display" class="cart__button">ACCÉDER AU PANIER</button>
