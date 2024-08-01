@@ -20,7 +20,7 @@ generateToken();
 
 <body>
 
-    
+
     <main>
         <div class="container">
             <h1>Hello</h1>
@@ -29,10 +29,10 @@ generateToken();
                     <?= getAllProducts($dbCo) ?>
                 </ul>
             </section>
-            
-            
-            
-            
+
+
+
+
             <select class="button--filter" name="pets" id="pet-select">
                 <option value="">Filtres</option>
                 <option value="magique">Magique</option>
@@ -49,7 +49,7 @@ generateToken();
                 <option value="nourriture">Nourriture</option>
             </select>
         </div>
-        
+
         <div class="cart__container">
             <section class="cart hidden" id="cart">
                 <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
@@ -63,13 +63,16 @@ generateToken();
             </section>
         </div>
 
-        
+
         <section class="receipt">
             <div class="receipt_content">
                 <div class="receipt_sum">
-                    <p>Sous total</p>
-                    <span></span>
-                    <p>Sous total</p>
+                    <p class="receipt_sum flex-row">Sous total</p>
+                    <div class="flex-row receipt_sum">
+                        <div id="total-price">Total: 0</div>
+                        <img src="./img/coin.svg" alt="pièce d\'or">
+                    </div>
+                    <p class="receipt_sum">Sous total</p>
                 </div>
                 <div class="receipt_separator"></div>
                 <div class="receipt_sum_tax">
@@ -82,7 +85,7 @@ generateToken();
             </div>
         </section>
     </main>
-    
+
     <button id="cart-button-display" class="cart__button"></button>
 
     <header class="header">
@@ -91,7 +94,7 @@ generateToken();
                 <img src="img/hamburger.svg" alt="Menu Hamburger">
             </a>
         </div>
-        <nav id="menu"class="nav hamburger__menu" aria-label="Navigation principale du site">
+        <nav id="menu" class="nav hamburger__menu" aria-label="Navigation principale du site">
             <ul id="nav-list">
                 <li>
                     <a href="index.php" aria-current="page">Accueil</a>
