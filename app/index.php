@@ -87,10 +87,11 @@ generateToken();
         </div>
 
 
-
     </main>
 
-    <button id="cart-button-display" class="cart__button">ACCÉDER AU PANIER</button>
+    <div class="cart__button__container">
+        <button id="cart-button-display" class="cart__button"><img src="./img/chest.svg" alt="">ACCÉDER AU PANIER</button>
+    </div>
 
     <header class="header">
         <div class="hamburger">
