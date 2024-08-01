@@ -78,9 +78,10 @@ generateToken();
                     <button class="button--valid-sale">Valider encaissement</button>
                 </div>
             </div>
-            <button id="cart-button-display" class="cart__button"></button>
         </section>
     </main>
+    
+    <button id="cart-button-display" class="cart__button"></button>
 
     <header class="header">
         <div class="hamburger">
@@ -88,7 +89,7 @@ generateToken();
                 <img src="img/hamburger.svg" alt="Menu Hamburger">
             </a>
         </div>
-        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
+        <nav id="menu"class="nav hamburger__menu" aria-label="Navigation principale du site">
             <ul id="nav-list">
                 <li>
                     <a href="index.php" aria-current="page">Accueil</a>
