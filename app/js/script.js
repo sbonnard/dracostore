@@ -43,6 +43,7 @@ const productCards = document.querySelectorAll('[data-product-card]');
 const cart = document.getElementById('cart');
 const template = document.getElementById('cart-itm');
 const totalPriceElement = document.getElementById('total-price');
+const allCart = document.getElementById('see-cart');
 
 productCards.forEach(card => {
     card.addEventListener('click', function () {
@@ -132,7 +133,7 @@ updateDeleteButtons();
 const displayCartBtn = document.getElementById('cart-button-display');
 
 displayCartBtn.addEventListener('click', function() {
-    cart.classList.toggle('hidden');
+    allCart.classList.toggle('hidden');
 })
 
 console.log(cartItems);
