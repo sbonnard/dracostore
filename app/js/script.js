@@ -62,6 +62,7 @@ productCards.forEach(card => {
         const productPrice = parseFloat(card.dataset.productPrice);
         const productImage = card.dataset.productImage;
 
+        
         if (cartItems.find(item => item.id === productId)) {
             console.log('Item is already in the cart');
             return;
@@ -83,14 +84,14 @@ productCards.forEach(card => {
 
         const quantityInput = clone.querySelector('.input--number');
 
-        if (cartItems.find(item => item.id === productId)) {
-            item.quantity += 1;
-        }
-
         quantityInput.addEventListener('input', function () {
             item.quantity = parseInt(this.value, 10);
             updateTotalPrice(); // Update total price when quantity changes
         });
+
+        if (e && cartItems.find(item => item.id === productId)) {
+            item.quantity + 1;
+        }
 
         cart.appendChild(clone);
 
