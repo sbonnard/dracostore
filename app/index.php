@@ -86,7 +86,8 @@ generateToken();
     </main>
 
     <div class="cart__button__container">
-        <button id="cart-button-display" class="button cart__button"><img src="./img/chest.svg" alt="">ACCÉDER AU PANIER</button>
+        <img class="cart__icon" src="./img/chest.svg" alt="icone panier">
+        <button id="cart-button-display" class="button cart__button">ACCÉDER AU PANIER</button>
     </div>
 
 

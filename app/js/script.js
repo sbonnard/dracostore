@@ -131,9 +131,16 @@ function updateTotalPrice() {
 updateDeleteButtons();
 
 const displayCartBtn = document.getElementById('cart-button-display');
+let isCartOpen = false;
 
-displayCartBtn.addEventListener('click', function() {
+displayCartBtn.addEventListener('click', function () {
     allCart.classList.toggle('hidden');
+    isCartOpen = !isCartOpen;
+    if (isCartOpen) {
+        displayCartBtn.innerHTML = 'FERMER LE PANIER';
+    } else {
+        displayCartBtn.innerHTML = 'ACCÉDER AU PANIER';
+    }
 })
 
 console.log(cartItems);
