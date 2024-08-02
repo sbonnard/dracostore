@@ -27,12 +27,12 @@ generateToken();
             <div class="container__content">
 
                 <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
-    
+
                 <button class="button button--filter" name="pets" id="pet-select">Filtres
                     <img src="./img/bow-down.svg" alt="">
                 </button>
             </div>
-            
+
             <!-- <option value="">Filtres</option>
                 <option value="magique">Magique</option>
                 <option value="potion">Potion</option>
@@ -56,7 +56,7 @@ generateToken();
                     <?= getAllProducts($dbCo) ?>
                 </ul>
             </section>
-            
+
 
 
 
@@ -78,7 +78,7 @@ generateToken();
                             <div id="total-price">0</div>
                             <img src="./img/coin.svg" alt="pièce d'or">
                         </div>
-                        
+
                     </div>
                     <div class="receipt_separator"></div>
                     <div class="receipt_sum_tax">
