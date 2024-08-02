@@ -1,8 +1,15 @@
 .header {
     display: inline-block;
     background-color: $beige;
+    width: 100%;
+    padding: 1rem;
 
-
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+    }
 }
 
 .main-nav {
@@ -11,10 +18,10 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1.5rem;
+    // padding: 1.5rem;
     // position: fixed;
     background-color: $beige;
-    gap: 4rem;
+    gap: 1rem;
 
     @media screen and (max-width: 768px) {
 
@@ -22,10 +29,21 @@
     }
 
     @media screen and (min-width: 768px) {
-        top: 0;
+        padding-top: 1rem;
+        flex-direction: column;
 
         & {
-            background-color: $brown;
+            // background-color: $brown;
+        }
+    }
+
+    &-img {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        @media screen and (min-width: 768px) {
+            justify-content: center; 
         }
     }
 }

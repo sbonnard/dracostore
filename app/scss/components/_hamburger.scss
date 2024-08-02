@@ -1,6 +1,14 @@
 /* Hamburger */
 
 .hamburger {
+    width: 50%;
+    
+
+    &__menu {
+        width: 100%;
+        
+    }
+
     @media screen and (max-width: 768px) {
         &__link {
             font-size: 1.25rem;
@@ -22,6 +30,8 @@
             padding-top: 1.25rem;
             transition: all 0.3s ease-in-out;
         }
+
+        
     
         &__menu.overlay {
             visibility: visible;

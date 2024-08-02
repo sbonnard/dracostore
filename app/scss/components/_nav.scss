@@ -1,26 +1,42 @@
 
 .nav {
+
     &__link {
         display: inline-block;
         text-transform: uppercase;
         font-family: 'lancelot';
-    font-size: 2rem;
+        font-size: 2rem;
     }
 
     &__item {
         color: $beige;
     }
 
+    &-lst-link {
+        @media screen and (min-width: 764px) {
+            width: 100%;
+        }
+    }
+
+
     @media screen and (min-width: 764px) {
             &__container {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
-                width: 56rem;
-                margin: auto;
+                background-color: $brown;
+                width: 100%;
+                // margin: auto;
             }    
         
     }
+
+    @media screen and (min-width: 763px) {
+        &__container {
+             padding: 1rem;
+        }    
+    
+}
 
     @media screen and (max-width: 763px) {
         &__container {
