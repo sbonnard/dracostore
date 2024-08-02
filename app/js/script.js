@@ -41,16 +41,27 @@ async function fetchProductDatas(params) {
 const cartItems = [];
 const productCards = document.querySelectorAll('[data-product-card]');
 const cart = document.getElementById('cart');
+const emptyCart = document.getElementById('cart-empty');
 const template = document.getElementById('cart-itm');
 const totalPriceElement = document.getElementById('total-price');
 const allCart = document.getElementById('see-cart');
 
+function updateEmptyCartMessage() {
+    if (cartItems.length > 0) {
+        emptyCart.innerHTML = '';
+        emptyCart.classList.add('cart__empty--closed')
+    } else {
+        emptyCart.innerHTML = 'Le panier est vide Alaric !';
+    }
+}
+
 productCards.forEach(card => {
-    card.addEventListener('click', function () {
+    card.addEventListener('click', function (e) {
         const productId = card.dataset.productCard;
         const productName = card.dataset.productName;
         const productPrice = parseFloat(card.dataset.productPrice);
         const productImage = card.dataset.productImage;
+
 
         if (cartItems.find(item => item.id === productId)) {
             console.log('Item is already in the cart');
@@ -70,17 +81,27 @@ productCards.forEach(card => {
 
         const imageProduct = clone.querySelector('[data-product-image]');
         imageProduct.srcset = item.image;
+        
+        const priceProduct = clone.querySelector('[data-product-price]');
+        priceProduct.innerHTML = item.price;
+         
 
-        const quantityInput = clone.querySelector('.input--number');
+        const quantityInput = clone.querySelector('.js-input-number');
+
         quantityInput.addEventListener('input', function () {
             item.quantity = parseInt(this.value, 10);
             updateTotalPrice(); // Update total price when quantity changes
         });
 
+        if (e && cartItems.find(item => item.id === productId)) {
+            item.quantity + 1;
+        }
+
         cart.appendChild(clone);
 
         updateDeleteButtons();
         updateTotalPrice(); // Update total price
+        updateEmptyCartMessage(); // Update empty cart message
     });
 });
 
@@ -97,6 +118,7 @@ function updateDeleteButtons() {
                 }
                 itemContainer.remove();
                 updateTotalPrice(); // Update total price after removal
+                updateEmptyCartMessage();
             }
         });
     });
@@ -124,16 +146,55 @@ function updateTotalPrice() {
     const totalPriceWithTax = totalPriceWithoutTax * 1.13; // Calculating total price with 13% tax
 
     // Displaying both prices
-    totalPriceElement.innerText = `${totalPriceWithoutTax.toFixed(2)}`;
-    totalTaxed.innerText = `${totalPriceWithTax.toFixed(2)}`;
+    totalPriceElement.innerText = `${totalPriceWithoutTax.toFixed(1)}`;
+    totalTaxed.innerText = `${totalPriceWithTax.toFixed(1)}`;
 }
 
 updateDeleteButtons();
+updateEmptyCartMessage();
 
 const displayCartBtn = document.getElementById('cart-button-display');
+let isCartOpen = false;
 
-displayCartBtn.addEventListener('click', function() {
+displayCartBtn.addEventListener('click', function () {
     allCart.classList.toggle('hidden');
+    isCartOpen = !isCartOpen;
+    if (isCartOpen) {
+        displayCartBtn.innerHTML = 'Fermer le panier';
+    } else {
+        displayCartBtn.innerHTML = 'Accéder au panier';
+    }
 })
 
+function updateQuantity() {
+    if (cartItems.find(item => item.id === productId)) {
+        quantityInput.value + 1;
+    }
+}
+
 console.log(cartItems);
+
+// function updateProductsInForm() {
+//     const container = document.getElementById('products-container');
+//     container.innerHTML = ''; // Efface les anciens champs cachés
+
+//     cartItems.forEach((item, index) => {
+//         const productIdInput = document.createElement('input');
+//         productIdInput.type = 'hidden';
+//         productIdInput.name = `products[${index}][id_product]`;
+//         productIdInput.value = item.id;
+
+//         const quantityInput = document.createElement('input');
+//         quantityInput.type = 'hidden';
+//         quantityInput.name = `products[${index}][quantity]`;
+//         quantityInput.value = item.quantity;
+
+//         container.appendChild(productIdInput);
+//         container.appendChild(quantityInput);
+//     });
+// }
+
+// // Appeler cette fonction avant l'envoi du formulaire
+// document.querySelector('form').addEventListener('submit', function () {
+//     updateProductsInForm();
+// });

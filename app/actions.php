@@ -6,21 +6,23 @@ require_once 'includes/_functions.php';
 require_once 'includes/_database.php';
 require_once 'includes/_message.php';
 require_once 'includes/_security.php';
-// require_once './includes/_profilCRUD-functions.php';
 
-header('Content-type:application/json');
-
-
+// var_dump($_REQUEST);
 if (!isset($_REQUEST['action'])) {
     redirectTo();
 }
 
+
 // Check CSRF
 preventFromCSRF();
 
+
 if (!empty($_POST)) {
+
     if ($_POST['action'] === 'create-ticket') {
         addNewTicket($dbCo);
     }
 }
+
+
 redirectTo();
