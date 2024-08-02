@@ -62,7 +62,7 @@ productCards.forEach(card => {
         const productPrice = parseFloat(card.dataset.productPrice);
         const productImage = card.dataset.productImage;
 
-        
+
         if (cartItems.find(item => item.id === productId)) {
             console.log('Item is already in the cart');
             return;
@@ -82,7 +82,7 @@ productCards.forEach(card => {
         const imageProduct = clone.querySelector('[data-product-image]');
         imageProduct.srcset = item.image;
 
-        const quantityInput = clone.querySelector('.input--number');
+        const quantityInput = clone.querySelector('.js-input-number');
 
         quantityInput.addEventListener('input', function () {
             item.quantity = parseInt(this.value, 10);
@@ -161,5 +161,11 @@ displayCartBtn.addEventListener('click', function () {
         displayCartBtn.innerHTML = 'ACCÉDER AU PANIER';
     }
 })
+
+function updateQuantity() {
+    if (cartItems.find(item => item.id === productId)) {
+        quantityInput.value + 1;
+    }
+}
 
 console.log(cartItems);
