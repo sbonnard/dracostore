@@ -12,7 +12,8 @@ $errors = [
     'id_product_ko' => 'Ce produit n\'existe pas.',
     'quantity_ko' => 'Saisissez une quantité valide.',
     'id_ticket_ko' => 'Le ticket n\'existe pas',
-    'datas_ko' => 'Les donées saisies ne sont pas valides.'
+    'datas_ko' => 'Les données saisies ne sont pas valides.',
+    'invalid_product_data' => 'Les données saisies sont invalides'
 ];
 
 

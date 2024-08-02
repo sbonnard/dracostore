@@ -160,9 +160,9 @@ displayCartBtn.addEventListener('click', function () {
     allCart.classList.toggle('hidden');
     isCartOpen = !isCartOpen;
     if (isCartOpen) {
-        displayCartBtn.innerHTML = 'FERMER LE PANIER';
+        displayCartBtn.innerHTML = 'Fermer le panier';
     } else {
-        displayCartBtn.innerHTML = 'ACCÉDER AU PANIER';
+        displayCartBtn.innerHTML = 'Accéder au panier';
     }
 })
 
@@ -173,3 +173,28 @@ function updateQuantity() {
 }
 
 console.log(cartItems);
+
+// function updateProductsInForm() {
+//     const container = document.getElementById('products-container');
+//     container.innerHTML = ''; // Efface les anciens champs cachés
+
+//     cartItems.forEach((item, index) => {
+//         const productIdInput = document.createElement('input');
+//         productIdInput.type = 'hidden';
+//         productIdInput.name = `products[${index}][id_product]`;
+//         productIdInput.value = item.id;
+
+//         const quantityInput = document.createElement('input');
+//         quantityInput.type = 'hidden';
+//         quantityInput.name = `products[${index}][quantity]`;
+//         quantityInput.value = item.quantity;
+
+//         container.appendChild(productIdInput);
+//         container.appendChild(quantityInput);
+//     });
+// }
+
+// // Appeler cette fonction avant l'envoi du formulaire
+// document.querySelector('form').addEventListener('submit', function () {
+//     updateProductsInForm();
+// });
