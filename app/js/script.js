@@ -81,6 +81,10 @@ productCards.forEach(card => {
 
         const imageProduct = clone.querySelector('[data-product-image]');
         imageProduct.srcset = item.image;
+        
+        const priceProduct = clone.querySelector('[data-product-price]');
+        priceProduct.innerHTML = item.price;
+         
 
         const quantityInput = clone.querySelector('.js-input-number');
 
