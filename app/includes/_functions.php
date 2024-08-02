@@ -38,7 +38,7 @@ function getAllProducts(PDO $dbCo)
 
     while ($product = $query->fetch()) {
 
-       echo '
+        echo '
         <li class="product__card">
             <button class="product__btn" data-product-card="' . $product["id_product"] . '" data-product-name="' . $product["product_name"] . '" data-product-price="' . $product["price"] . '" data-product-image="' . $product["image_url"] . '">
             <img class="product__card-img" src="' . $product["image_url"] . '" alt="">
@@ -78,11 +78,11 @@ function sumSale(PDO $dbCo)
     $infoTotal = $query->execute();
 
     return
-       '<span>'. $infoTotal . '<span>';
-
+        '<span>' . $infoTotal . '<span>';
 }
 
-function getSumReceipt(PDO $dbCo) {
+function getSumReceipt(PDO $dbCo)
+{
     $query = $dbCo->query(
         'SELECT SUM(price*quantity) AS no_tax_price, SUM(price * quantity * 1.13) AS tax_price, id_ticket
         FROM product
@@ -91,8 +91,6 @@ function getSumReceipt(PDO $dbCo) {
         WHERE id_ticket = 238
         GROUP BY id_ticket;'
     );
-
-    
 }
 
 
@@ -100,7 +98,7 @@ function getSumReceipt(PDO $dbCo) {
 
 
 /**
- * Adds a new ticket to database with products infos and quantity.
+ * Adds a new ticket to the database with products info and quantity.
  *
  * @param PDO $dbCo - Connection to database.
  * @return bool - isInsertOk true or false.
@@ -112,43 +110,56 @@ function addNewTicket(PDO $dbCo): bool
     checkSaleErrors();
 
     if (empty($errorsList)) {
+
         try {
+
             $dbCo->beginTransaction();
 
-            $queryTicket = $dbCo->prepare(
-                'INSERT INTO ticket (ticket_date) VALUES (CURDATE())'
-            );
+            $queryTicket = $dbCo->prepare('INSERT INTO ticket (ticket_date) VALUES (CURDATE());');
             $queryTicket->execute();
             $ticketId = $dbCo->lastInsertId();
 
             $querySale = $dbCo->prepare(
-                'INSERT INTO sale (id_product, id_ticket, quantity)
+                'INSERT INTO sales (id_product, id_ticket, quantity)
                 VALUES (:idProduct, :idTicket, :quantity)'
             );
 
-            $bindValues = [
-                'idProduct' => intval($_REQUEST['id_product']),
-                'idTicket' => intval($ticketId),
-                'quantity' => intval($_REQUEST['quantity'])
-            ];
 
-            $isInsertOk = $querySale->execute($bindValues);
+            foreach ($_REQUEST['id_product'] as $key => $idProduct) {
 
-            if ($isInsertOk) {
-                addMessage('sale_ok');
-            } else {
-                addError('sale_ko');
+                if (!is_numeric($idProduct) || !isset($_REQUEST['quantity'][$key]) || !isset($_REQUEST['id_product'][$key]) || !is_numeric($_REQUEST['quantity'][$key]) || !is_numeric($_REQUEST['id_product'][$key])) {
+                    addError('invalid_product_data');
+                    $dbCo->rollBack();
+                    return false;
+                }
+
+                $bindValues = [
+                    'idProduct' => intval($idProduct),
+                    'idTicket' => intval($ticketId),
+                    'quantity' => intval($_REQUEST['quantity'][$key])
+                ];
+
+                $isSaleInsertOk = $querySale->execute($bindValues);
+
+                if (!$isSaleInsertOk) {
+                    addError('sale_ko');
+                    $dbCo->rollBack();
+                    return false;
+                }
             }
 
+            addMessage('sale_ok');
             $dbCo->commit();
-
-            return $isInsertOk;
+            return true;
         } catch (Exception $error) {
+            var_dump('PDO exception: ' . $error->getMessage());
             $_SESSION['errors'] = "sale_fail: " . $error->getMessage();
             $dbCo->rollBack();
             return false;
         }
     }
+
+    return false;
 }
 
 
@@ -159,7 +170,7 @@ function addNewTicket(PDO $dbCo): bool
  */
 function checkSaleErrors()
 {
-    if (!isset($_POST['id_product']) || !intval($_POST['id_product'])) {
+    if (!isset($_POST['id_product']) || !is_array($_POST['id_product'])) {
         $errorsList[] = 'product ko';
         addError('id_product_ko');
     }
