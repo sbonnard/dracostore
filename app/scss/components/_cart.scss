@@ -115,4 +115,15 @@
         top: 20%;
         left: 10%;
     }
+
+    &__empty {
+        font-family: 'lancelot';
+        font-size: 2rem;
+        padding-bottom: 3rem;
+        color: $brown;
+
+        &--closed {
+            padding-bottom: 0;
+        }
+    }
 }

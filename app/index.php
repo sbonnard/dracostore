@@ -58,7 +58,9 @@ generateToken();
                 <div class="cart__container">
                     <h3 class="title">Panier</h3>
                     <div class="separator"></div>
-                    <ul class="cart" id="cart"></ul>
+                    <ul class="cart" id="cart">
+                        <p class="cart__empty" id="cart-empty"></p>
+                    </ul>
                 </div>
                 <div class="receipt_content">
                     <div class="receipt_sum">
@@ -125,7 +127,7 @@ generateToken();
                 <div class="flex-column">
                     <h2 class="cart__product-name" data-product-name="">Produit</h2>
                     <div class="cart__small-container">
-                        <input class="input--number" type="number" name="quantity" class="quantity" value="1">
+                        <input class="input--number js-input-number" type="number" name="quantity" class="quantity" value="1">
                         <input type="hidden" name="" data-product-ref="" value="id_product">
                         <button class="cart__delete-button" type="button" data-product-delete=""></button>
                     </div>
