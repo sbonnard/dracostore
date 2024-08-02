@@ -58,7 +58,9 @@ generateToken();
                 <div class="cart__container">
                     <h3 class="title">Panier</h3>
                     <div class="separator"></div>
-                    <ul class="cart" id="cart"></ul>
+                    <ul class="cart" id="cart">
+                        <p class="cart__empty" id="cart-empty"></p>
+                    </ul>
                 </div>
                 <div class="receipt_content">
                     <div class="receipt_sum">

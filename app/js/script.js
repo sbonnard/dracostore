@@ -41,12 +41,22 @@ async function fetchProductDatas(params) {
 const cartItems = [];
 const productCards = document.querySelectorAll('[data-product-card]');
 const cart = document.getElementById('cart');
+const emptyCart = document.getElementById('cart-empty');
 const template = document.getElementById('cart-itm');
 const totalPriceElement = document.getElementById('total-price');
 const allCart = document.getElementById('see-cart');
 
+function updateEmptyCartMessage() {
+    if (cartItems.length > 0) {
+        emptyCart.innerHTML = '';
+        emptyCart.classList.add('cart__empty--closed')
+    } else {
+        emptyCart.innerHTML = 'Le panier est vide Alaric !';
+    }
+}
+
 productCards.forEach(card => {
-    card.addEventListener('click', function () {
+    card.addEventListener('click', function (e) {
         const productId = card.dataset.productCard;
         const productName = card.dataset.productName;
         const productPrice = parseFloat(card.dataset.productPrice);
@@ -72,6 +82,11 @@ productCards.forEach(card => {
         imageProduct.srcset = item.image;
 
         const quantityInput = clone.querySelector('.input--number');
+
+        if (cartItems.find(item => item.id === productId)) {
+            item.quantity += 1;
+        }
+
         quantityInput.addEventListener('input', function () {
             item.quantity = parseInt(this.value, 10);
             updateTotalPrice(); // Update total price when quantity changes
@@ -81,6 +96,7 @@ productCards.forEach(card => {
 
         updateDeleteButtons();
         updateTotalPrice(); // Update total price
+        updateEmptyCartMessage(); // Update empty cart message
     });
 });
 
@@ -97,6 +113,7 @@ function updateDeleteButtons() {
                 }
                 itemContainer.remove();
                 updateTotalPrice(); // Update total price after removal
+                updateEmptyCartMessage();
             }
         });
     });
@@ -124,11 +141,12 @@ function updateTotalPrice() {
     const totalPriceWithTax = totalPriceWithoutTax * 1.13; // Calculating total price with 13% tax
 
     // Displaying both prices
-    totalPriceElement.innerText = `${totalPriceWithoutTax.toFixed(2)}`;
-    totalTaxed.innerText = `${totalPriceWithTax.toFixed(2)}`;
+    totalPriceElement.innerText = `${totalPriceWithoutTax.toFixed(1)}`;
+    totalTaxed.innerText = `${totalPriceWithTax.toFixed(1)}`;
 }
 
 updateDeleteButtons();
+updateEmptyCartMessage();
 
 const displayCartBtn = document.getElementById('cart-button-display');
 let isCartOpen = false;
