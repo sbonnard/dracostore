@@ -23,3 +23,4 @@ if (!empty($_POST)) {
         addNewTicket($dbCo);
     }
 }
+redirectTo();

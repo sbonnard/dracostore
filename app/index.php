@@ -23,11 +23,16 @@ generateToken();
 
     <main>
         <div class="container">
-            <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
 
-            <button class="button button--filter" name="pets" id="pet-select">Filtres
-                <img src="./img/bow-down.svg" alt="">
-            </button>
+            <div class="container__content">
+
+                <input type="text" class="border-searchbar search-title" placeholder="Rechercher.."></input>
+    
+                <button class="button button--filter" name="pets" id="pet-select">Filtres
+                    <img src="./img/bow-down.svg" alt="">
+                </button>
+            </div>
+            
             <!-- <option value="">Filtres</option>
                 <option value="magique">Magique</option>
                 <option value="potion">Potion</option>
@@ -47,7 +52,7 @@ generateToken();
                     <?= getAllProducts($dbCo) ?>
                 </ul>
             </section>
-
+            
 
 
 
@@ -67,7 +72,7 @@ generateToken();
                             <div id="total-price">0</div>
                             <img src="./img/coin.svg" alt="pièce d\'or">
                         </div>
-                        <p class="receipt_sum">Sous total</p>
+                        
                     </div>
                     <div class="receipt_separator"></div>
                     <div class="receipt_sum_tax">
@@ -97,10 +102,14 @@ generateToken();
                     <img src="img/hamburger.svg" alt="Menu Hamburger">
                 </a>
             </div>
-            <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
-            <button class="button--hood"></button>
+
+            <div class="main-nav-img">
+                <img src="img/dracostore-logo-text.webp" alt="Logo du Dracostore">
+                <button class="button--hood"></button>
+            </div>
+
             <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
-                <ul>
+                <ul class="nav-lst-link">
                     <div class="nav__container">
                         <li class="nav__item">
                             <a class="nav__link" href="index.php" aria-current="page">Encaissement</a>
