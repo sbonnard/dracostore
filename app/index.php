@@ -129,6 +129,10 @@ generateToken();
                     <div class="cart__small-container">
                         <input class="input--number js-input-number" type="number" name="quantity" class="quantity" value="1">
                         <input type="hidden" name="" data-product-ref="" value="id_product">
+                        <div class="flex-row">
+                            <p class="product__price cart__product-price" data-product-price=""></p>
+                            <img src="./img/coin.svg" alt="pièce d\'or">
+                        </div>
                         <button class="cart__delete-button" type="button" data-product-delete=""></button>
                     </div>
                 </div>
